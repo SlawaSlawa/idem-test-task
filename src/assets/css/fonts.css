@@ -1,0 +1,84 @@
+@font-face {
+    font-family: "Inter 24pt";
+    src: url("../fonts/Inter/Inter24pt-Medium.woff2") format("woff2"),
+        url("../fonts/Inter/Inter24pt-Medium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Inter 24pt";
+    src: url("../fonts/Inter/Inter24pt-Bold.woff2") format("woff2"),
+        url("../fonts/Inter/Inter24pt-Bold.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Inter 18pt";
+    src: url("../fonts/Inter/Inter18pt-Bold.woff2") format("woff2"),
+        url("../fonts/Inter/Inter18pt-Bold.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Inter 18pt";
+    src: url("../fonts/Inter/Inter18pt-Medium.woff2") format("woff2"),
+        url("../fonts/Inter/Inter18pt-Medium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ---------------------------------------- */
+
+@font-face {
+    font-family: "Montserrat";
+    src: url("../fonts/Montserrat/Montserrat-Bold.woff2") format("woff2"),
+        url("../fonts/Montserrat/Montserrat-Bold.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url("../fonts/Montserrat/Montserrat-Regular.woff2") format("woff2"),
+        url("../fonts/Montserrat/Montserrat-Regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url("../fonts/Montserrat/Montserrat-Medium.woff2") format("woff2"),
+        url("../fonts/Montserrat/Montserrat-Medium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ---------------------------------- */
+
+@font-face {
+    font-family: "Rubik";
+    src: url("../fonts/Rubik/Rubik-Regular.woff2") format("woff2"),
+        url("../fonts/Rubik/Rubik-Regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Rubik";
+    src: url("../fonts/Rubik/Rubik-Bold.woff2") format("woff2"),
+        url("../fonts/Rubik/Rubik-Bold.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}

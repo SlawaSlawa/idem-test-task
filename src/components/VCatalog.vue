@@ -22,46 +22,12 @@
                     </div>
                 </div>
                 <div class="card__content-wrap">
-                    <div class="card__price-wrap">
-                        <div class="card__price-item">
-                            <div class="card__price-num">
-                                {{
-                                    (
-                                        card.price -
-                                        (card.price * card.discountPercentage) /
-                                            100
-                                    ).toFixed(2)
-                                }}
-                                ₽
-                            </div>
-                            <div class="card__price-text">С картой</div>
-                        </div>
-                        <div class="card__price-item">
-                            <div class="card__price-num--default">
-                                {{ card.price }} ₽
-                            </div>
-                            <div class="card__price-text">Обычная</div>
-                        </div>
-                    </div>
+                    <v-card-price
+                        :price="card.price"
+                        :discount="card.discountPercentage"
+                    ></v-card-price>
                     <h3 class="card__title">{{ card.title }}</h3>
-                    <div class="card__rating">
-                        <div
-                            class="card__rating-item"
-                            v-for="(star, index) in 5"
-                            :key="index"
-                        >
-                            <img
-                                :src="
-                                    require('../assets/images/icons/star' +
-                                        (Math.round(card.rating) >= index + 1
-                                            ? '-active-icon.svg'
-                                            : '-icon.svg'))
-                                "
-                                alt="Icon - Star"
-                                class="card__rating-img"
-                            />
-                        </div>
-                    </div>
+                    <v-card-rating :rating="card.rating"></v-card-rating>
                     <button class="btn btn--card">В корзину</button>
                 </div>
             </div>
@@ -80,10 +46,12 @@
 <script>
 import VPreloader from "./VPreloader.vue";
 import VErrorMessage from "./VErrorMessage.vue";
+import VCardRating from "./VRating.vue";
+import VCardPrice from "./VCardPrice.vue";
 
 export default {
     name: "VCatalog",
-    components: { VPreloader, VErrorMessage },
+    components: { VPreloader, VErrorMessage, VCardRating, VCardPrice },
     data() {
         return {
             multiplier: 1,
@@ -200,53 +168,10 @@ export default {
     padding: 8px;
 }
 
-.card__price-wrap {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    margin-bottom: 8px;
-}
-
-.card__price-item {
-    display: flex;
-    flex-direction: column;
-}
-
-.card__price-num {
-    font-weight: 700;
-    font-size: 18px;
-}
-
-.card__price-num--default {
-    color: #606060;
-}
-
-.card__price-text {
-    color: #8f8f8f;
-}
-
 .card__title {
     margin-bottom: 8px;
     font-size: 16px;
     font-weight: 500;
-}
-
-.card__rating {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    margin-bottom: 8px;
-}
-
-.card__rating-item {
-    width: 16px;
-    height: 16px;
-}
-.card__rating-img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
 
 .btn--card {

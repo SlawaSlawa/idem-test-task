@@ -3,8 +3,7 @@
     <v-bread-crumbs></v-bread-crumbs>
     <main class="main">
         <div class="container">
-            <v-search></v-search>
-            <v-catalog></v-catalog>
+            <RouterView />
         </div>
     </main>
     <v-footer></v-footer>
@@ -13,8 +12,6 @@
 <script>
 import VHeader from "./components/VHeader.vue";
 import VBreadCrumbs from "./components/VBreadCrumbs.vue";
-import VSearch from "./components/VSearch.vue";
-import VCatalog from "./components/VCatalog.vue";
 import VFooter from "./components/VFooter.vue";
 
 export default {
@@ -33,8 +30,6 @@ export default {
     components: {
         VHeader,
         VBreadCrumbs,
-        VCatalog,
-        VSearch,
         VFooter,
     },
     data() {

@@ -109,6 +109,10 @@ export default {
     margin-bottom: 48px;
 }
 
+.card-wrapper {
+    padding: 0 20px 18px;
+}
+
 .card {
     width: 100%;
     border-radius: 4px;

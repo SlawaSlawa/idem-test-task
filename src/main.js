@@ -4,6 +4,8 @@ import "@/assets/css/fonts.css";
 import "@/assets/css/main.css";
 import router from "./router";
 import store from "./store";
+// import "swiper/swiper/css";
+import "swiper/swiper-bundle.css";
 
 import App from "./App.vue";
 

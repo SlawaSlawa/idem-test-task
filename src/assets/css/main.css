@@ -95,11 +95,27 @@ a {
 /* ----------------@MEDIA-------------- */
 
 @media (max-width: 768px) {
+    .section-title {
+        margin-bottom: 32px;
+        font-size: 24px;
+    }
     .section-min-title {
         margin-bottom: 16px;
     }
 }
 
+@media (max-width: 679px) {
+    .section-title {
+        margin-bottom: 16px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 356px) {
+    .reviews-form__header {
+        flex-direction: column;
+    }
+}
 @media (max-width: 360px) {
     .section-min-title {
         font-size: 20px;

@@ -248,7 +248,7 @@
 
         <section class="section section--buying-more">
             <h2 class="section-title">С этим товаров покупают</h2>
-            <div class="buying-slider">
+            <div class="slider">
                 <Swiper
                     :modules="modules"
                     :slides-per-view="4"
@@ -825,7 +825,7 @@
             </div>
         </section>
 
-        <section class="section section--actions dn">
+        <section class="section section--actions">
             <div class="section-actions__header">
                 <h2 class="section-title">Акции</h2>
                 <button class="actions-btn">
@@ -847,155 +847,396 @@
                 </button>
             </div>
 
-            <div class="catalog">
-                <v-preloader></v-preloader>
-                <v-error-message v-if="getIsLoadedError"></v-error-message>
-                <div class="card">
-                    <div class="card__img-wrap">
-                        <img
-                            src="../assets/images/catalog/blinchiki_s_myasom.png"
-                            alt="Product - 1"
-                            class="card__img"
-                        />
-                        <div class="card__badge">-50%</div>
-                        <div class="card__like">
-                            <img
-                                src="../assets/images/icons/like-icon.svg"
-                                alt="Like"
-                                class="card__like-img"
-                            />
-                        </div>
-                    </div>
-                    <div class="card__content-wrap">
-                        <div class="card__price-wrap">
-                            <div class="card__price-item">
-                                <div class="card__price-num">44,50 ₽</div>
-                                <div class="card__price-text">С картой</div>
-                            </div>
-                            <div class="card__price-item">
-                                <div class="card__price-num--default">
-                                    50,50 ₽
+            <div class="slider">
+                <!-- <v-preloader></v-preloader>
+                <v-error-message v-if="getIsLoadedError"></v-error-message> -->
+                <Swiper
+                    :modules="modules"
+                    :slides-per-view="4"
+                    :space-between="20"
+                    navigation
+                    :breakpoints="{
+                        280: {
+                            slidesPerView: 1,
+                            spaceBetween: 10,
+                        },
+                        352: {
+                            slidesPerView: 2,
+                            spaceBetween: 10,
+                        },
+                        680: {
+                            slidesPerView: 3,
+                            spaceBetween: 12,
+                        },
+                        971: {
+                            slidesPerView: 4,
+                            spaceBetween: 20,
+                        },
+                    }"
+                >
+                    <!-- <v-preloader></v-preloader>
+                        <v-error-message
+                            v-if="getIsLoadedError"
+                        ></v-error-message> -->
+                    <SwiperSlide>
+                        <div class="card">
+                            <div class="card__img-wrap">
+                                <img
+                                    src="../assets/images/catalog/blinchiki_s_myasom.png"
+                                    alt="Product - 1"
+                                    class="card__img"
+                                />
+                                <div class="card__badge">-50%</div>
+                                <div class="card__like">
+                                    <img
+                                        src="../assets/images/icons/like-icon.svg"
+                                        alt="Like"
+                                        class="card__like-img"
+                                    />
                                 </div>
-                                <div class="card__price-text">Обычная</div>
                             </div>
-                        </div>
-                        <h3 class="card__title">
-                            Г/Ц Блинчики с мясом вес, Россия
-                        </h3>
-                        <v-card-rating :rating="2"></v-card-rating>
-                        <button class="btn btn--card">В корзину</button>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card__img-wrap">
-                        <img
-                            src="../assets/images/catalog/product-4.png"
-                            alt="Product - 1"
-                            class="card__img"
-                        />
-                        <div class="card__badge">-50%</div>
-                        <div class="card__like">
-                            <img
-                                src="../assets/images/icons/like-icon.svg"
-                                alt="Like"
-                                class="card__like-img"
-                            />
-                        </div>
-                    </div>
-                    <div class="card__content-wrap">
-                        <div class="card__price-wrap">
-                            <div class="card__price-item">
-                                <div class="card__price-num">44,50 ₽</div>
-                                <div class="card__price-text">С картой</div>
-                            </div>
-                            <div class="card__price-item">
-                                <div class="card__price-num--default">
-                                    50,50 ₽
+                            <div class="card__content-wrap">
+                                <div class="card__price-wrap">
+                                    <div class="card__price-item">
+                                        <div class="card__price-num">
+                                            44,50 ₽
+                                        </div>
+                                        <div class="card__price-text">
+                                            С картой
+                                        </div>
+                                    </div>
+                                    <div class="card__price-item">
+                                        <div class="card__price-num--default">
+                                            50,50 ₽
+                                        </div>
+                                        <div class="card__price-text">
+                                            Обычная
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="card__price-text">Обычная</div>
+                                <h3 class="card__title">
+                                    Г/Ц Блинчики с мясом вес, Россия
+                                </h3>
+                                <v-card-rating :rating="2"></v-card-rating>
+                                <button class="btn btn--card">В корзину</button>
                             </div>
                         </div>
-                        <h3 class="card__title">
-                            Молоко ПРОСТОКВАШИНО паст. питьевое цельное отборное
-                            ...
-                        </h3>
-                        <v-card-rating :rating="2"></v-card-rating>
-                        <button class="btn btn--card">В корзину</button>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card__img-wrap">
-                        <img
-                            src="../assets/images/catalog/product-2.png"
-                            alt="Product - 1"
-                            class="card__img"
-                        />
-                        <div class="card__badge">-50%</div>
-                        <div class="card__like">
-                            <img
-                                src="../assets/images/icons/like-icon.svg"
-                                alt="Like"
-                                class="card__like-img"
-                            />
-                        </div>
-                    </div>
-                    <div class="card__content-wrap">
-                        <div class="card__price-wrap">
-                            <div class="card__price-item">
-                                <div class="card__price-num">44,50 ₽</div>
-                                <div class="card__price-text">С картой</div>
-                            </div>
-                            <div class="card__price-item">
-                                <div class="card__price-num--default">
-                                    50,50 ₽
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div class="card">
+                            <div class="card__img-wrap">
+                                <img
+                                    src="../assets/images/catalog/product-4.png"
+                                    alt="Product - 1"
+                                    class="card__img"
+                                />
+                                <div class="card__badge">-50%</div>
+                                <div class="card__like">
+                                    <img
+                                        src="../assets/images/icons/like-icon.svg"
+                                        alt="Like"
+                                        class="card__like-img"
+                                    />
                                 </div>
-                                <div class="card__price-text">Обычная</div>
                             </div>
-                        </div>
-                        <h3 class="card__title">
-                            Колбаса сырокопченая МЯСНАЯ ИСТОРИЯ Сальчичон и
-                            Тоскан...
-                        </h3>
-                        <v-card-rating :rating="2"></v-card-rating>
-                        <button class="btn btn--card">В корзину</button>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card__img-wrap">
-                        <img
-                            src="../assets/images/catalog/product-3.png"
-                            alt="Product - 3"
-                            class="card__img"
-                        />
-                        <div class="card__badge">-50%</div>
-                        <div class="card__like">
-                            <img
-                                src="../assets/images/icons/like-icon.svg"
-                                alt="Like"
-                                class="card__like-img"
-                            />
-                        </div>
-                    </div>
-                    <div class="card__content-wrap">
-                        <div class="card__price-wrap">
-                            <div class="card__price-item">
-                                <div class="card__price-num">44,50 ₽</div>
-                                <div class="card__price-text">С картой</div>
-                            </div>
-                            <div class="card__price-item">
-                                <div class="card__price-num--default">
-                                    50,50 ₽
+                            <div class="card__content-wrap">
+                                <div class="card__price-wrap">
+                                    <div class="card__price-item">
+                                        <div class="card__price-num">
+                                            44,50 ₽
+                                        </div>
+                                        <div class="card__price-text">
+                                            С картой
+                                        </div>
+                                    </div>
+                                    <div class="card__price-item">
+                                        <div class="card__price-num--default">
+                                            50,50 ₽
+                                        </div>
+                                        <div class="card__price-text">
+                                            Обычная
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="card__price-text">Обычная</div>
+                                <h3 class="card__title">
+                                    Молоко ПРОСТОКВАШИНО паст. питьевое цельное
+                                    отборное ...
+                                </h3>
+                                <v-card-rating :rating="2"></v-card-rating>
+                                <button class="btn btn--card">В корзину</button>
                             </div>
                         </div>
-                        <h3 class="card__title">
-                            Сосиски вареные МЯСНАЯ ИСТОРИЯ Молочные и С сыро...
-                        </h3>
-                        <v-card-rating :rating="2"></v-card-rating>
-                        <button class="btn btn--card">В корзину</button>
-                    </div>
-                </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div class="card">
+                            <div class="card__img-wrap">
+                                <img
+                                    src="../assets/images/catalog/product-2.png"
+                                    alt="Product - 1"
+                                    class="card__img"
+                                />
+                                <div class="card__badge">-50%</div>
+                                <div class="card__like">
+                                    <img
+                                        src="../assets/images/icons/like-icon.svg"
+                                        alt="Like"
+                                        class="card__like-img"
+                                    />
+                                </div>
+                            </div>
+                            <div class="card__content-wrap">
+                                <div class="card__price-wrap">
+                                    <div class="card__price-item">
+                                        <div class="card__price-num">
+                                            44,50 ₽
+                                        </div>
+                                        <div class="card__price-text">
+                                            С картой
+                                        </div>
+                                    </div>
+                                    <div class="card__price-item">
+                                        <div class="card__price-num--default">
+                                            50,50 ₽
+                                        </div>
+                                        <div class="card__price-text">
+                                            Обычная
+                                        </div>
+                                    </div>
+                                </div>
+                                <h3 class="card__title">
+                                    Колбаса сырокопченая МЯСНАЯ ИСТОРИЯ
+                                    Сальчичон и Тоскан...
+                                </h3>
+                                <v-card-rating :rating="2"></v-card-rating>
+                                <button class="btn btn--card">В корзину</button>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div class="card">
+                            <div class="card__img-wrap">
+                                <img
+                                    src="../assets/images/catalog/product-3.png"
+                                    alt="Product - 3"
+                                    class="card__img"
+                                />
+                                <div class="card__badge">-50%</div>
+                                <div class="card__like">
+                                    <img
+                                        src="../assets/images/icons/like-icon.svg"
+                                        alt="Like"
+                                        class="card__like-img"
+                                    />
+                                </div>
+                            </div>
+                            <div class="card__content-wrap">
+                                <div class="card__price-wrap">
+                                    <div class="card__price-item">
+                                        <div class="card__price-num">
+                                            44,50 ₽
+                                        </div>
+                                        <div class="card__price-text">
+                                            С картой
+                                        </div>
+                                    </div>
+                                    <div class="card__price-item">
+                                        <div class="card__price-num--default">
+                                            50,50 ₽
+                                        </div>
+                                        <div class="card__price-text">
+                                            Обычная
+                                        </div>
+                                    </div>
+                                </div>
+                                <h3 class="card__title">
+                                    Сосиски вареные МЯСНАЯ ИСТОРИЯ Молочные и С
+                                    сыро...
+                                </h3>
+                                <v-card-rating :rating="2"></v-card-rating>
+                                <button class="btn btn--card">В корзину</button>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div class="card">
+                            <div class="card__img-wrap">
+                                <img
+                                    src="../assets/images/catalog/blinchiki_s_myasom.png"
+                                    alt="Product - 1"
+                                    class="card__img"
+                                />
+                                <div class="card__badge">-50%</div>
+                                <div class="card__like">
+                                    <img
+                                        src="../assets/images/icons/like-icon.svg"
+                                        alt="Like"
+                                        class="card__like-img"
+                                    />
+                                </div>
+                            </div>
+                            <div class="card__content-wrap">
+                                <div class="card__price-wrap">
+                                    <div class="card__price-item">
+                                        <div class="card__price-num">
+                                            44,50 ₽
+                                        </div>
+                                        <div class="card__price-text">
+                                            С картой
+                                        </div>
+                                    </div>
+                                    <div class="card__price-item">
+                                        <div class="card__price-num--default">
+                                            50,50 ₽
+                                        </div>
+                                        <div class="card__price-text">
+                                            Обычная
+                                        </div>
+                                    </div>
+                                </div>
+                                <h3 class="card__title">
+                                    Г/Ц Блинчики с мясом вес, Россия
+                                </h3>
+                                <v-card-rating :rating="2"></v-card-rating>
+                                <button class="btn btn--card">В корзину</button>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div class="card">
+                            <div class="card__img-wrap">
+                                <img
+                                    src="../assets/images/catalog/product-4.png"
+                                    alt="Product - 1"
+                                    class="card__img"
+                                />
+                                <div class="card__badge">-50%</div>
+                                <div class="card__like">
+                                    <img
+                                        src="../assets/images/icons/like-icon.svg"
+                                        alt="Like"
+                                        class="card__like-img"
+                                    />
+                                </div>
+                            </div>
+                            <div class="card__content-wrap">
+                                <div class="card__price-wrap">
+                                    <div class="card__price-item">
+                                        <div class="card__price-num">
+                                            44,50 ₽
+                                        </div>
+                                        <div class="card__price-text">
+                                            С картой
+                                        </div>
+                                    </div>
+                                    <div class="card__price-item">
+                                        <div class="card__price-num--default">
+                                            50,50 ₽
+                                        </div>
+                                        <div class="card__price-text">
+                                            Обычная
+                                        </div>
+                                    </div>
+                                </div>
+                                <h3 class="card__title">
+                                    Молоко ПРОСТОКВАШИНО паст. питьевое цельное
+                                    отборное ...
+                                </h3>
+                                <v-card-rating :rating="2"></v-card-rating>
+                                <button class="btn btn--card">В корзину</button>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div class="card">
+                            <div class="card__img-wrap">
+                                <img
+                                    src="../assets/images/catalog/product-2.png"
+                                    alt="Product - 1"
+                                    class="card__img"
+                                />
+                                <div class="card__badge">-50%</div>
+                                <div class="card__like">
+                                    <img
+                                        src="../assets/images/icons/like-icon.svg"
+                                        alt="Like"
+                                        class="card__like-img"
+                                    />
+                                </div>
+                            </div>
+                            <div class="card__content-wrap">
+                                <div class="card__price-wrap">
+                                    <div class="card__price-item">
+                                        <div class="card__price-num">
+                                            44,50 ₽
+                                        </div>
+                                        <div class="card__price-text">
+                                            С картой
+                                        </div>
+                                    </div>
+                                    <div class="card__price-item">
+                                        <div class="card__price-num--default">
+                                            50,50 ₽
+                                        </div>
+                                        <div class="card__price-text">
+                                            Обычная
+                                        </div>
+                                    </div>
+                                </div>
+                                <h3 class="card__title">
+                                    Колбаса сырокопченая МЯСНАЯ ИСТОРИЯ
+                                    Сальчичон и Тоскан...
+                                </h3>
+                                <v-card-rating :rating="2"></v-card-rating>
+                                <button class="btn btn--card">В корзину</button>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div class="card">
+                            <div class="card__img-wrap">
+                                <img
+                                    src="../assets/images/catalog/product-3.png"
+                                    alt="Product - 3"
+                                    class="card__img"
+                                />
+                                <div class="card__badge">-50%</div>
+                                <div class="card__like">
+                                    <img
+                                        src="../assets/images/icons/like-icon.svg"
+                                        alt="Like"
+                                        class="card__like-img"
+                                    />
+                                </div>
+                            </div>
+                            <div class="card__content-wrap">
+                                <div class="card__price-wrap">
+                                    <div class="card__price-item">
+                                        <div class="card__price-num">
+                                            44,50 ₽
+                                        </div>
+                                        <div class="card__price-text">
+                                            С картой
+                                        </div>
+                                    </div>
+                                    <div class="card__price-item">
+                                        <div class="card__price-num--default">
+                                            50,50 ₽
+                                        </div>
+                                        <div class="card__price-text">
+                                            Обычная
+                                        </div>
+                                    </div>
+                                </div>
+                                <h3 class="card__title">
+                                    Сосиски вареные МЯСНАЯ ИСТОРИЯ Молочные и С
+                                    сыро...
+                                </h3>
+                                <v-card-rating :rating="2"></v-card-rating>
+                                <button class="btn btn--card">В корзину</button>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                </Swiper>
             </div>
         </section>
     </main>
@@ -1003,7 +1244,7 @@
 
 <script>
 import VRating from "@/components/VRating.vue";
-import VPreloader from "@/components/VPreloader.vue";
+// import VPreloader from "@/components/VPreloader.vue";
 // import { ref } from "vue";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/vue";
@@ -1017,7 +1258,7 @@ export default {
     name: "ProductView",
     components: {
         VRating,
-        VPreloader,
+        // VPreloader,
         Swiper,
         SwiperSlide,
     },

@@ -2,13 +2,13 @@
     <header class="header">
         <div class="container container--header">
             <div class="header__wrapper">
-                <div class="logo">
+                <RouterLink to="/" class="logo">
                     <img
                         class="logo__img"
                         alt="Logo - Магазин"
                         src="../assets/images/logo.png"
                     />
-                </div>
+                </RouterLink>
                 <button class="btn btn--catalog">
                     <svg
                         class="btn__image-catalog"
@@ -229,6 +229,7 @@ export default {
 }
 
 .logo {
+    display: block;
     width: 85px;
     height: 40px;
     cursor: pointer;

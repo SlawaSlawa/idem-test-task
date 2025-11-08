@@ -1,24 +1,6 @@
 <template>
     <main class="main">
         <div class="products-slider">
-            <div class="products-slider__pagination">
-                <Swiper
-                    :slides-per-view="5"
-                    :space-between="20"
-                    :direction="'vertical'"
-                    ref="galleryThumbs"
-                    thumbs="true"
-                >
-                    <SwiperSlide v-for="(slide, index) in 10" :key="index">
-                        <div class="products-slider__pagination-item"></div>
-                    </SwiperSlide>
-                    <!-- <div class="products-slider__pagination-item"></div>
-
-                        <div class="products-slider__pagination-item"></div>
-                        <div class="products-slider__pagination-item"></div>
-                        <div class="products-slider__pagination-item"></div> -->
-                </Swiper>
-            </div>
             <Swiper
                 ref="galleryTop"
                 thumbs="{ swiper: galleryThumbs }"
@@ -106,6 +88,29 @@
                     <div class="products-slider__wrapper">
                         <div class="products-slider__item">
                             <div class="products-slider__img-wrappper">
+                                <div class="products-slider__pagination">
+                                    <Swiper
+                                        :slides-per-view="5"
+                                        :space-between="20"
+                                        :direction="'vertical'"
+                                        ref="galleryThumbs"
+                                        thumbs="true"
+                                    >
+                                        <SwiperSlide
+                                            v-for="(slide, index) in 10"
+                                            :key="index"
+                                        >
+                                            <div
+                                                class="products-slider__pagination-item"
+                                            ></div>
+                                        </SwiperSlide>
+                                        <!-- <div class="products-slider__pagination-item"></div>
+
+                        <div class="products-slider__pagination-item"></div>
+                        <div class="products-slider__pagination-item"></div>
+                        <div class="products-slider__pagination-item"></div> -->
+                                    </Swiper>
+                                </div>
                                 <img
                                     src="../assets/images/products-slider/product-slider-1.jpg"
                                     alt="Item-1"
@@ -251,7 +256,7 @@
             <div class="slider">
                 <Swiper
                     :modules="modules"
-                    :slides-per-view="4"
+                    :slides-per-view="1"
                     :space-between="20"
                     navigation
                     :breakpoints="{
@@ -307,7 +312,7 @@
                                         Г/Ц Блинчики с мясом вес, Россия
                                     </h3>
                                 </div>
-                                <v-card-rating :rating="2"></v-card-rating>
+                                <v-rating :rating="2"></v-rating>
                                 <button class="btn btn--card">В корзину</button>
                             </div>
                         </div>
@@ -342,7 +347,7 @@
                                         Г/Ц Блинчики с мясом вес, Россия
                                     </h3>
                                 </div>
-                                <v-card-rating :rating="2"></v-card-rating>
+                                <v-rating :rating="2"></v-rating>
                                 <button class="btn btn--card">В корзину</button>
                             </div>
                         </div>
@@ -377,7 +382,7 @@
                                         Г/Ц Блинчики с мясом вес, Россия
                                     </h3>
                                 </div>
-                                <v-card-rating :rating="2"></v-card-rating>
+                                <v-rating :rating="2"></v-rating>
                                 <button class="btn btn--card">В корзину</button>
                             </div>
                         </div>
@@ -412,7 +417,7 @@
                                         Г/Ц Блинчики с мясом вес, Россия
                                     </h3>
                                 </div>
-                                <v-card-rating :rating="2"></v-card-rating>
+                                <v-rating :rating="2"></v-rating>
                                 <button class="btn btn--card">В корзину</button>
                             </div>
                         </div>
@@ -447,7 +452,7 @@
                                         Г/Ц Блинчики с мясом вес, Россия
                                     </h3>
                                 </div>
-                                <v-card-rating :rating="2"></v-card-rating>
+                                <v-rating :rating="2"></v-rating>
                                 <button class="btn btn--card">В корзину</button>
                             </div>
                         </div>
@@ -482,7 +487,7 @@
                                         Г/Ц Блинчики с мясом вес, Россия
                                     </h3>
                                 </div>
-                                <v-card-rating :rating="2"></v-card-rating>
+                                <v-rating :rating="2"></v-rating>
                                 <button class="btn btn--card">В корзину</button>
                             </div>
                         </div>
@@ -517,7 +522,7 @@
                                         Г/Ц Блинчики с мясом вес, Россия
                                     </h3>
                                 </div>
-                                <v-card-rating :rating="2"></v-card-rating>
+                                <v-rating :rating="2"></v-rating>
                                 <button class="btn btn--card">В корзину</button>
                             </div>
                         </div>
@@ -552,7 +557,7 @@
                                         Г/Ц Блинчики с мясом вес, Россия
                                     </h3>
                                 </div>
-                                <v-card-rating :rating="2"></v-card-rating>
+                                <v-rating :rating="2"></v-rating>
                                 <button class="btn btn--card">В корзину</button>
                             </div>
                         </div>
@@ -836,7 +841,7 @@
                 <v-error-message v-if="getIsLoadedError"></v-error-message> -->
                 <Swiper
                     :modules="modules"
-                    :slides-per-view="4"
+                    :slides-per-view="1"
                     :space-between="20"
                     navigation
                     :breakpoints="{
@@ -903,7 +908,7 @@
                                         Г/Ц Блинчики с мясом вес, Россия
                                     </h3>
                                 </div>
-                                <v-card-rating :rating="2"></v-card-rating>
+                                <v-rating :rating="2"></v-rating>
                                 <button class="btn btn--card">В корзину</button>
                             </div>
                         </div>
@@ -950,7 +955,7 @@
                                         цельное отборное
                                     </h3>
                                 </div>
-                                <v-card-rating :rating="2"></v-card-rating>
+                                <v-rating :rating="2"></v-rating>
                                 <button class="btn btn--card">В корзину</button>
                             </div>
                         </div>
@@ -997,7 +1002,7 @@
                                         Сальчичон и Тоскан
                                     </h3>
                                 </div>
-                                <v-card-rating :rating="2"></v-card-rating>
+                                <v-rating :rating="2"></v-rating>
                                 <button class="btn btn--card">В корзину</button>
                             </div>
                         </div>
@@ -1044,7 +1049,7 @@
                                         и С сыро
                                     </h3>
                                 </div>
-                                <v-card-rating :rating="2"></v-card-rating>
+                                <v-rating :rating="2"></v-rating>
                                 <button class="btn btn--card">В корзину</button>
                             </div>
                         </div>
@@ -1090,7 +1095,7 @@
                                         Г/Ц Блинчики с мясом вес, Россия
                                     </h3>
                                 </div>
-                                <v-card-rating :rating="2"></v-card-rating>
+                                <v-rating :rating="2"></v-rating>
                                 <button class="btn btn--card">В корзину</button>
                             </div>
                         </div>
@@ -1137,7 +1142,7 @@
                                         цельное отборное
                                     </h3>
                                 </div>
-                                <v-card-rating :rating="2"></v-card-rating>
+                                <v-rating :rating="2"></v-rating>
                                 <button class="btn btn--card">В корзину</button>
                             </div>
                         </div>
@@ -1184,7 +1189,7 @@
                                         Сальчичон и Тоскан
                                     </h3>
                                 </div>
-                                <v-card-rating :rating="2"></v-card-rating>
+                                <v-rating :rating="2"></v-rating>
                                 <button class="btn btn--card">В корзину</button>
                             </div>
                         </div>
@@ -1231,7 +1236,7 @@
                                         и С сыро
                                     </h3>
                                 </div>
-                                <v-card-rating :rating="2"></v-card-rating>
+                                <v-rating :rating="2"></v-rating>
                                 <button class="btn btn--card">В корзину</button>
                             </div>
                         </div>
@@ -1296,14 +1301,15 @@ export default {
 }
 /* ----------PRODUCTS SLIDER---------------- */
 .slider .swiper {
-    padding: 20px;
+    padding: 20px 10px;
 }
 .products-slider {
     position: relative;
     padding-bottom: 48px;
-    padding-left: 112px;
 }
 .products-slider__wrapper {
+    position: relative;
+    padding-left: 112px;
 }
 .products-slider__title {
     margin-bottom: 16px;
@@ -1311,8 +1317,9 @@ export default {
 }
 .products-slider__info {
     display: flex;
-    margin-bottom: 16px;
-    gap: 24px;
+    margin-bottom: 27px;
+    gap: 8px 24px;
+    flex-wrap: wrap;
 }
 .products-slider__info-item {
     display: flex;
@@ -1335,7 +1342,7 @@ export default {
 .products-slider__pagination {
     position: absolute;
     top: 0;
-    left: 0;
+    left: -112px;
     width: 64px;
     height: 100%;
     background-color: #fff;
@@ -1357,15 +1364,25 @@ export default {
 }
 .products-slider__item {
     display: flex;
-    gap: 64px;
+    gap: 53px;
+    padding: 10px;
 }
 .products-slider__img-wrappper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: calc((608 * 100%) / 1208);
     border-radius: 4px;
     box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.1);
 }
+.products-slider__img {
+    width: 100%;
+    object-fit: cover;
+}
 .products-slider__text-info {
+    display: flex;
     flex-direction: column;
-    width: 424px;
+    max-width: 424px;
 }
 .products-slider__price-wrap {
     display: flex;
@@ -1616,10 +1633,13 @@ export default {
 .swiper-button-prev {
     display: none !important;
 }
-
+/* -----------------@MEDIA--------------- */
 @media (max-width: 971px) {
     .buying-slider .swiper {
         padding-bottom: 64px;
+    }
+    .slider .swiper {
+        padding-bottom: 74px;
     }
     .swiper-button-next,
     .swiper-button-prev {
@@ -1635,12 +1655,13 @@ export default {
         background-repeat: no-repeat;
         background-size: 7px;
     }
-    .swiper-button-prev {
-        left: 0;
+    .slider .swiper-button-prev {
+        left: 20px !important;
         background-image: url(../assets/images/icons/arrow-next-icon.svg);
         transform: rotate(180deg);
     }
-    .swiper-button-next {
+    .slider .swiper-button-next {
+        right: 20px !important;
         background-image: url(../assets/images/icons/arrow-next-icon.svg);
     }
     .swiper-navigation-icon {
@@ -1656,11 +1677,79 @@ export default {
         background-image: url(../assets/images/icons/arrow-prev-disabled-icon.svg);
         transform: rotate(0deg);
     }
+    .products-slider__wrapper {
+        padding-left: 0;
+    }
+    .products-slider__img-wrappper {
+        padding-left: 80px;
+    }
+    .products-slider__pagination {
+        left: 0;
+    }
+    .products-slider__pagination-item {
+        height: 36px;
+        background-size: cover;
+        background-position: center;
+    }
+    .products-slider__text-info {
+        padding-right: 3px;
+    }
+    .products-slider__info {
+        margin-bottom: 16px;
+        gap: 8px 16px;
+    }
+    .products-slider__item {
+        padding: 5px;
+        gap: 40px;
+    }
+    .products-slider__title {
+        font-size: 20px;
+    }
+    .products-slider__price-num--default {
+        font-size: 18px;
+        font-weight: 500;
+    }
+    .products-slider__price-num {
+        font-size: 24px;
+    }
 }
 
+@media (max-width: 760px) {
+    .products-slider__item {
+        flex-direction: column;
+    }
+    .products-slider__img-wrappper {
+        width: 100%;
+    }
+    .products-slider__text-info {
+        width: 100%;
+        max-width: 100%;
+    }
+}
 @media (max-width: 680px) {
     .buying-slider .swiper {
         padding-bottom: 56px;
+    }
+    .products-slider__text-info {
+        padding-right: 0;
+    }
+    .products-slider__price-wrap {
+        align-items: baseline;
+    }
+    .products-slider__price-num--default {
+        margin-bottom: 5px;
+    }
+}
+
+@media (max-width: 482px) {
+    .products-slider__img-wrappper {
+        height: 248px;
+    }
+}
+
+@media (max-width: 319px) {
+    .products-slider__price-wrap {
+        flex-direction: column;
     }
 }
 
@@ -1696,6 +1785,9 @@ export default {
     }
     .reviews-form__textarea {
         margin-bottom: 16px;
+    }
+    .products-slider__info {
+        font-size: 10px;
     }
 }
 

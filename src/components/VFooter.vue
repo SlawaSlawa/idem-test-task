@@ -222,4 +222,11 @@
         right: 32px;
     }
 }
+
+@media (max-width: 318px) {
+    .footer__phone {
+        top: 4px;
+        right: 7px;
+    }
+}
 </style>

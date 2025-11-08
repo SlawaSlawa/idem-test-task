@@ -268,7 +268,7 @@ export default {
 
 @media (max-width: 520px) {
     .card {
-        height: 322px;
+        height: auto;
     }
     .card__content-wrap {
         height: 177px;

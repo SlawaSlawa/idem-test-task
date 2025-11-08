@@ -26,7 +26,9 @@
                         :price="card.price"
                         :discount="card.discountPercentage"
                     ></v-card-price>
-                    <h3 class="card__title">{{ card.title }}</h3>
+                    <div class="card__title-wrap">
+                        <h3 class="card__title">{{ card.title }}</h3>
+                    </div>
                     <v-card-rating :rating="card.rating"></v-card-rating>
                     <button class="btn btn--card">В корзину</button>
                 </div>
@@ -115,6 +117,7 @@ export default {
 
 .card {
     width: 100%;
+    height: 349px;
     border-radius: 4px;
     background-color: #fff;
     box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.1);
@@ -173,13 +176,26 @@ export default {
 }
 
 .card__content-wrap {
+    display: flex;
+    flex-direction: column;
     padding: 8px;
+    height: 189px;
+}
+
+.card__title-wrap {
+    flex-grow: 1;
 }
 
 .card__title {
     margin-bottom: 8px;
     font-size: 16px;
     font-weight: 500;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    height: 40px;
 }
 
 .btn--card {
@@ -236,6 +252,14 @@ export default {
     }
 }
 
+@media (max-width: 768px) {
+    .catalog {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .card {
+        height: 346px;
+    }
+}
 @media (max-width: 680px) {
     .catalog {
         grid-template-columns: repeat(2, 1fr);
@@ -243,6 +267,12 @@ export default {
 }
 
 @media (max-width: 520px) {
+    .card {
+        height: 322px;
+    }
+    .card__content-wrap {
+        height: 177px;
+    }
     .card__price-wrap {
         align-items: end;
     }

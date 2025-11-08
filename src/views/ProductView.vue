@@ -278,298 +278,282 @@
                             v-if="getIsLoadedError"
                         ></v-error-message> -->
                     <SwiperSlide>
-                        <div class="card-wrapper">
-                            <div class="card">
-                                <div class="card__img-wrap">
+                        <div class="card">
+                            <div class="card__img-wrap">
+                                <img
+                                    src="../assets/images/catalog/product-1.png"
+                                    alt="Product - 1"
+                                    class="card__img"
+                                />
+                                <div class="card__badge">-50%</div>
+                                <div class="card__like">
                                     <img
-                                        src="../assets/images/catalog/product-1.png"
-                                        alt="Product - 1"
-                                        class="card__img"
+                                        src="../assets/images/icons/like-icon.svg"
+                                        alt="Like"
+                                        class="card__like-img"
                                     />
-                                    <div class="card__badge">-50%</div>
-                                    <div class="card__like">
-                                        <img
-                                            src="../assets/images/icons/like-icon.svg"
-                                            alt="Like"
-                                            class="card__like-img"
-                                        />
-                                    </div>
                                 </div>
-                                <div class="card__content-wrap">
-                                    <div class="card__price-wrap">
-                                        <div class="card__price-item">
-                                            <div class="card__price-num">
-                                                44,50 ₽
-                                            </div>
+                            </div>
+                            <div class="card__content-wrap">
+                                <div class="card__price-wrap">
+                                    <div class="card__price-item">
+                                        <div class="card__price-num">
+                                            44,50 ₽
                                         </div>
                                     </div>
+                                </div>
+                                <div class="card__title-wrap">
                                     <h3 class="card__title">
                                         Г/Ц Блинчики с мясом вес, Россия
                                     </h3>
-                                    <v-card-rating :rating="2"></v-card-rating>
-                                    <button class="btn btn--card">
-                                        В корзину
-                                    </button>
                                 </div>
+                                <v-card-rating :rating="2"></v-card-rating>
+                                <button class="btn btn--card">В корзину</button>
                             </div>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div class="card-wrapper">
-                            <div class="card">
-                                <div class="card__img-wrap">
+                        <div class="card">
+                            <div class="card__img-wrap">
+                                <img
+                                    src="../assets/images/catalog/product-2.png"
+                                    alt="Product - 1"
+                                    class="card__img"
+                                />
+                                <div class="card__badge">-50%</div>
+                                <div class="card__like">
                                     <img
-                                        src="../assets/images/catalog/product-2.png"
-                                        alt="Product - 1"
-                                        class="card__img"
+                                        src="../assets/images/icons/like-icon.svg"
+                                        alt="Like"
+                                        class="card__like-img"
                                     />
-                                    <div class="card__badge">-50%</div>
-                                    <div class="card__like">
-                                        <img
-                                            src="../assets/images/icons/like-icon.svg"
-                                            alt="Like"
-                                            class="card__like-img"
-                                        />
-                                    </div>
                                 </div>
-                                <div class="card__content-wrap">
-                                    <div class="card__price-wrap">
-                                        <div class="card__price-item">
-                                            <div class="card__price-num">
-                                                44,50 ₽
-                                            </div>
+                            </div>
+                            <div class="card__content-wrap">
+                                <div class="card__price-wrap">
+                                    <div class="card__price-item">
+                                        <div class="card__price-num">
+                                            44,50 ₽
                                         </div>
                                     </div>
+                                </div>
+                                <div class="card__title-wrap">
                                     <h3 class="card__title">
                                         Г/Ц Блинчики с мясом вес, Россия
                                     </h3>
-                                    <v-card-rating :rating="2"></v-card-rating>
-                                    <button class="btn btn--card">
-                                        В корзину
-                                    </button>
                                 </div>
+                                <v-card-rating :rating="2"></v-card-rating>
+                                <button class="btn btn--card">В корзину</button>
                             </div>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div class="card-wrapper">
-                            <div class="card">
-                                <div class="card__img-wrap">
+                        <div class="card">
+                            <div class="card__img-wrap">
+                                <img
+                                    src="../assets/images/catalog/product-3.png"
+                                    alt="Product - 1"
+                                    class="card__img"
+                                />
+                                <div class="card__badge">-50%</div>
+                                <div class="card__like">
                                     <img
-                                        src="../assets/images/catalog/product-3.png"
-                                        alt="Product - 1"
-                                        class="card__img"
+                                        src="../assets/images/icons/like-icon.svg"
+                                        alt="Like"
+                                        class="card__like-img"
                                     />
-                                    <div class="card__badge">-50%</div>
-                                    <div class="card__like">
-                                        <img
-                                            src="../assets/images/icons/like-icon.svg"
-                                            alt="Like"
-                                            class="card__like-img"
-                                        />
-                                    </div>
-                                </div>
-                                <div class="card__content-wrap">
-                                    <div class="card__price-wrap">
-                                        <div class="card__price-item">
-                                            <div class="card__price-num">
-                                                44,50 ₽
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <h3 class="card__title">
-                                        Г/Ц Блинчики с мясом вес, Россия
-                                    </h3>
-                                    <v-card-rating :rating="2"></v-card-rating>
-                                    <button class="btn btn--card">
-                                        В корзину
-                                    </button>
                                 </div>
                             </div>
-                        </div></SwiperSlide
-                    >
-                    <SwiperSlide>
-                        <div class="card-wrapper">
-                            <div class="card">
-                                <div class="card__img-wrap">
-                                    <img
-                                        src="../assets/images/catalog/product-4.png"
-                                        alt="Product - 1"
-                                        class="card__img"
-                                    />
-                                    <div class="card__badge">-50%</div>
-                                    <div class="card__like">
-                                        <img
-                                            src="../assets/images/icons/like-icon.svg"
-                                            alt="Like"
-                                            class="card__like-img"
-                                        />
-                                    </div>
-                                </div>
-                                <div class="card__content-wrap">
-                                    <div class="card__price-wrap">
-                                        <div class="card__price-item">
-                                            <div class="card__price-num">
-                                                44,50 ₽
-                                            </div>
+                            <div class="card__content-wrap">
+                                <div class="card__price-wrap">
+                                    <div class="card__price-item">
+                                        <div class="card__price-num">
+                                            44,50 ₽
                                         </div>
                                     </div>
+                                </div>
+                                <div class="card__title-wrap">
                                     <h3 class="card__title">
                                         Г/Ц Блинчики с мясом вес, Россия
                                     </h3>
-                                    <v-card-rating :rating="2"></v-card-rating>
-                                    <button class="btn btn--card">
-                                        В корзину
-                                    </button>
                                 </div>
+                                <v-card-rating :rating="2"></v-card-rating>
+                                <button class="btn btn--card">В корзину</button>
                             </div>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div class="card-wrapper">
-                            <div class="card">
-                                <div class="card__img-wrap">
+                        <div class="card">
+                            <div class="card__img-wrap">
+                                <img
+                                    src="../assets/images/catalog/product-4.png"
+                                    alt="Product - 1"
+                                    class="card__img"
+                                />
+                                <div class="card__badge">-50%</div>
+                                <div class="card__like">
                                     <img
-                                        src="../assets/images/catalog/product-1.png"
-                                        alt="Product - 1"
-                                        class="card__img"
+                                        src="../assets/images/icons/like-icon.svg"
+                                        alt="Like"
+                                        class="card__like-img"
                                     />
-                                    <div class="card__badge">-50%</div>
-                                    <div class="card__like">
-                                        <img
-                                            src="../assets/images/icons/like-icon.svg"
-                                            alt="Like"
-                                            class="card__like-img"
-                                        />
-                                    </div>
                                 </div>
-                                <div class="card__content-wrap">
-                                    <div class="card__price-wrap">
-                                        <div class="card__price-item">
-                                            <div class="card__price-num">
-                                                44,50 ₽
-                                            </div>
+                            </div>
+                            <div class="card__content-wrap">
+                                <div class="card__price-wrap">
+                                    <div class="card__price-item">
+                                        <div class="card__price-num">
+                                            44,50 ₽
                                         </div>
                                     </div>
+                                </div>
+                                <div class="card__title-wrap">
                                     <h3 class="card__title">
                                         Г/Ц Блинчики с мясом вес, Россия
                                     </h3>
-                                    <v-card-rating :rating="2"></v-card-rating>
-                                    <button class="btn btn--card">
-                                        В корзину
-                                    </button>
                                 </div>
+                                <v-card-rating :rating="2"></v-card-rating>
+                                <button class="btn btn--card">В корзину</button>
                             </div>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div class="card-wrapper">
-                            <div class="card">
-                                <div class="card__img-wrap">
+                        <div class="card">
+                            <div class="card__img-wrap">
+                                <img
+                                    src="../assets/images/catalog/product-1.png"
+                                    alt="Product - 1"
+                                    class="card__img"
+                                />
+                                <div class="card__badge">-50%</div>
+                                <div class="card__like">
                                     <img
-                                        src="../assets/images/catalog/product-2.png"
-                                        alt="Product - 1"
-                                        class="card__img"
+                                        src="../assets/images/icons/like-icon.svg"
+                                        alt="Like"
+                                        class="card__like-img"
                                     />
-                                    <div class="card__badge">-50%</div>
-                                    <div class="card__like">
-                                        <img
-                                            src="../assets/images/icons/like-icon.svg"
-                                            alt="Like"
-                                            class="card__like-img"
-                                        />
-                                    </div>
                                 </div>
-                                <div class="card__content-wrap">
-                                    <div class="card__price-wrap">
-                                        <div class="card__price-item">
-                                            <div class="card__price-num">
-                                                44,50 ₽
-                                            </div>
+                            </div>
+                            <div class="card__content-wrap">
+                                <div class="card__price-wrap">
+                                    <div class="card__price-item">
+                                        <div class="card__price-num">
+                                            44,50 ₽
                                         </div>
                                     </div>
+                                </div>
+                                <div class="card__title-wrap">
                                     <h3 class="card__title">
                                         Г/Ц Блинчики с мясом вес, Россия
                                     </h3>
-                                    <v-card-rating :rating="2"></v-card-rating>
-                                    <button class="btn btn--card">
-                                        В корзину
-                                    </button>
                                 </div>
+                                <v-card-rating :rating="2"></v-card-rating>
+                                <button class="btn btn--card">В корзину</button>
                             </div>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div class="card-wrapper">
-                            <div class="card">
-                                <div class="card__img-wrap">
+                        <div class="card">
+                            <div class="card__img-wrap">
+                                <img
+                                    src="../assets/images/catalog/product-2.png"
+                                    alt="Product - 1"
+                                    class="card__img"
+                                />
+                                <div class="card__badge">-50%</div>
+                                <div class="card__like">
                                     <img
-                                        src="../assets/images/catalog/product-3.png"
-                                        alt="Product - 1"
-                                        class="card__img"
+                                        src="../assets/images/icons/like-icon.svg"
+                                        alt="Like"
+                                        class="card__like-img"
                                     />
-                                    <div class="card__badge">-50%</div>
-                                    <div class="card__like">
-                                        <img
-                                            src="../assets/images/icons/like-icon.svg"
-                                            alt="Like"
-                                            class="card__like-img"
-                                        />
-                                    </div>
-                                </div>
-                                <div class="card__content-wrap">
-                                    <div class="card__price-wrap">
-                                        <div class="card__price-item">
-                                            <div class="card__price-num">
-                                                44,50 ₽
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <h3 class="card__title">
-                                        Г/Ц Блинчики с мясом вес, Россия
-                                    </h3>
-                                    <v-card-rating :rating="2"></v-card-rating>
-                                    <button class="btn btn--card">
-                                        В корзину
-                                    </button>
                                 </div>
                             </div>
-                        </div></SwiperSlide
-                    >
-                    <SwiperSlide>
-                        <div class="card-wrapper">
-                            <div class="card">
-                                <div class="card__img-wrap">
-                                    <img
-                                        src="../assets/images/catalog/product-4.png"
-                                        alt="Product - 1"
-                                        class="card__img"
-                                    />
-                                    <div class="card__badge">-50%</div>
-                                    <div class="card__like">
-                                        <img
-                                            src="../assets/images/icons/like-icon.svg"
-                                            alt="Like"
-                                            class="card__like-img"
-                                        />
-                                    </div>
-                                </div>
-                                <div class="card__content-wrap">
-                                    <div class="card__price-wrap">
-                                        <div class="card__price-item">
-                                            <div class="card__price-num">
-                                                44,50 ₽
-                                            </div>
+                            <div class="card__content-wrap">
+                                <div class="card__price-wrap">
+                                    <div class="card__price-item">
+                                        <div class="card__price-num">
+                                            44,50 ₽
                                         </div>
                                     </div>
+                                </div>
+                                <div class="card__title-wrap">
                                     <h3 class="card__title">
                                         Г/Ц Блинчики с мясом вес, Россия
                                     </h3>
-                                    <v-card-rating :rating="2"></v-card-rating>
-                                    <button class="btn btn--card">
-                                        В корзину
-                                    </button>
                                 </div>
+                                <v-card-rating :rating="2"></v-card-rating>
+                                <button class="btn btn--card">В корзину</button>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div class="card">
+                            <div class="card__img-wrap">
+                                <img
+                                    src="../assets/images/catalog/product-3.png"
+                                    alt="Product - 1"
+                                    class="card__img"
+                                />
+                                <div class="card__badge">-50%</div>
+                                <div class="card__like">
+                                    <img
+                                        src="../assets/images/icons/like-icon.svg"
+                                        alt="Like"
+                                        class="card__like-img"
+                                    />
+                                </div>
+                            </div>
+                            <div class="card__content-wrap">
+                                <div class="card__price-wrap">
+                                    <div class="card__price-item">
+                                        <div class="card__price-num">
+                                            44,50 ₽
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card__title-wrap">
+                                    <h3 class="card__title">
+                                        Г/Ц Блинчики с мясом вес, Россия
+                                    </h3>
+                                </div>
+                                <v-card-rating :rating="2"></v-card-rating>
+                                <button class="btn btn--card">В корзину</button>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div class="card">
+                            <div class="card__img-wrap">
+                                <img
+                                    src="../assets/images/catalog/product-4.png"
+                                    alt="Product - 1"
+                                    class="card__img"
+                                />
+                                <div class="card__badge">-50%</div>
+                                <div class="card__like">
+                                    <img
+                                        src="../assets/images/icons/like-icon.svg"
+                                        alt="Like"
+                                        class="card__like-img"
+                                    />
+                                </div>
+                            </div>
+                            <div class="card__content-wrap">
+                                <div class="card__price-wrap">
+                                    <div class="card__price-item">
+                                        <div class="card__price-num">
+                                            44,50 ₽
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card__title-wrap">
+                                    <h3 class="card__title">
+                                        Г/Ц Блинчики с мясом вес, Россия
+                                    </h3>
+                                </div>
+                                <v-card-rating :rating="2"></v-card-rating>
+                                <button class="btn btn--card">В корзину</button>
                             </div>
                         </div>
                     </SwiperSlide>
@@ -907,16 +891,18 @@
                                     </div>
                                     <div class="card__price-item">
                                         <div class="card__price-num--default">
-                                            50,50 ₽
+                                            50,51 ₽
                                         </div>
                                         <div class="card__price-text">
                                             Обычная
                                         </div>
                                     </div>
                                 </div>
-                                <h3 class="card__title">
-                                    Г/Ц Блинчики с мясом вес, Россия
-                                </h3>
+                                <div class="card__title-wrap">
+                                    <h3 class="card__title">
+                                        Г/Ц Блинчики с мясом вес, Россия
+                                    </h3>
+                                </div>
                                 <v-card-rating :rating="2"></v-card-rating>
                                 <button class="btn btn--card">В корзину</button>
                             </div>
@@ -958,10 +944,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h3 class="card__title">
-                                    Молоко ПРОСТОКВАШИНО паст. питьевое цельное
-                                    отборное ...
-                                </h3>
+                                <div class="card__title-wrap">
+                                    <h3 class="card__title">
+                                        Молоко ПРОСТОКВАШИНО паст. питьевое
+                                        цельное отборное
+                                    </h3>
+                                </div>
                                 <v-card-rating :rating="2"></v-card-rating>
                                 <button class="btn btn--card">В корзину</button>
                             </div>
@@ -1003,10 +991,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h3 class="card__title">
-                                    Колбаса сырокопченая МЯСНАЯ ИСТОРИЯ
-                                    Сальчичон и Тоскан...
-                                </h3>
+                                <div class="card__title-wrap">
+                                    <h3 class="card__title">
+                                        Колбаса сырокопченая МЯСНАЯ ИСТОРИЯ
+                                        Сальчичон и Тоскан
+                                    </h3>
+                                </div>
                                 <v-card-rating :rating="2"></v-card-rating>
                                 <button class="btn btn--card">В корзину</button>
                             </div>
@@ -1048,10 +1038,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h3 class="card__title">
-                                    Сосиски вареные МЯСНАЯ ИСТОРИЯ Молочные и С
-                                    сыро...
-                                </h3>
+                                <div class="card__title-wrap">
+                                    <h3 class="card__title">
+                                        Сосиски вареные МЯСНАЯ ИСТОРИЯ Молочные
+                                        и С сыро
+                                    </h3>
+                                </div>
                                 <v-card-rating :rating="2"></v-card-rating>
                                 <button class="btn btn--card">В корзину</button>
                             </div>
@@ -1093,9 +1085,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h3 class="card__title">
-                                    Г/Ц Блинчики с мясом вес, Россия
-                                </h3>
+                                <div class="card__title-wrap">
+                                    <h3 class="card__title">
+                                        Г/Ц Блинчики с мясом вес, Россия
+                                    </h3>
+                                </div>
                                 <v-card-rating :rating="2"></v-card-rating>
                                 <button class="btn btn--card">В корзину</button>
                             </div>
@@ -1137,10 +1131,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h3 class="card__title">
-                                    Молоко ПРОСТОКВАШИНО паст. питьевое цельное
-                                    отборное ...
-                                </h3>
+                                <div class="card__title-wrap">
+                                    <h3 class="card__title">
+                                        Молоко ПРОСТОКВАШИНО паст. питьевое
+                                        цельное отборное
+                                    </h3>
+                                </div>
                                 <v-card-rating :rating="2"></v-card-rating>
                                 <button class="btn btn--card">В корзину</button>
                             </div>
@@ -1182,10 +1178,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h3 class="card__title">
-                                    Колбаса сырокопченая МЯСНАЯ ИСТОРИЯ
-                                    Сальчичон и Тоскан...
-                                </h3>
+                                <div class="card__title-wrap">
+                                    <h3 class="card__title">
+                                        Колбаса сырокопченая МЯСНАЯ ИСТОРИЯ
+                                        Сальчичон и Тоскан
+                                    </h3>
+                                </div>
                                 <v-card-rating :rating="2"></v-card-rating>
                                 <button class="btn btn--card">В корзину</button>
                             </div>
@@ -1227,10 +1225,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h3 class="card__title">
-                                    Сосиски вареные МЯСНАЯ ИСТОРИЯ Молочные и С
-                                    сыро...
-                                </h3>
+                                <div class="card__title-wrap">
+                                    <h3 class="card__title">
+                                        Сосиски вареные МЯСНАЯ ИСТОРИЯ Молочные
+                                        и С сыро
+                                    </h3>
+                                </div>
                                 <v-card-rating :rating="2"></v-card-rating>
                                 <button class="btn btn--card">В корзину</button>
                             </div>
@@ -1295,6 +1295,9 @@ export default {
     position: relative;
 }
 /* ----------PRODUCTS SLIDER---------------- */
+.slider .swiper {
+    padding: 20px;
+}
 .products-slider {
     position: relative;
     padding-bottom: 48px;
@@ -1609,7 +1612,6 @@ export default {
     padding-right: 3px;
     padding-left: 3px;
 }
-
 .swiper-button-next,
 .swiper-button-prev {
     display: none !important;

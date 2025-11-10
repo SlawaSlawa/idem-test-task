@@ -1,5 +1,8 @@
 <template>
     <main class="main">
+        {{ $route.params.id }}
+        {{ productInfo }}
+        {{ productItem }}
         <div class="products-slider">
             <Swiper
                 ref="galleryTop"
@@ -9,16 +12,27 @@
             >
                 <SwiperSlide v-for="(slide, idx) in 10" :key="idx">
                     <h2 class="products-slider__title">
-                        Масло ПРОСТОКВАШИНО сливочное в/с 82% фольга без змж,
-                        Россия, 180 г
+                        {{ productInfo.title }}
                     </h2>
 
                     <ul class="products-slider__info">
-                        <li class="products-slider__info-item">арт. 371431</li>
                         <li class="products-slider__info-item">
-                            <v-rating :rating="2"></v-rating>
-                            <a href="#" class="products-slider__info-link">
-                                3 отзыва</a
+                            арт. {{ productInfo.sku }}
+                        </li>
+                        <li class="products-slider__info-item">
+                            <v-rating
+                                :rating="Number(productInfo.rating)"
+                            ></v-rating>
+                            <a
+                                href="#reviews"
+                                class="products-slider__info-link"
+                            >
+                                {{
+                                    productInfo.reviews
+                                        ? productInfo.reviews.length
+                                        : 0
+                                }}
+                                отзыва</a
                             >
                         </li>
                         <li class="products-slider__info-item">
@@ -97,23 +111,26 @@
                                         thumbs="true"
                                     >
                                         <SwiperSlide
-                                            v-for="(slide, index) in 10"
+                                            v-for="(
+                                                imageSrc, index
+                                            ) in productInfo.images"
                                             :key="index"
                                         >
                                             <div
                                                 class="products-slider__pagination-item"
-                                            ></div>
+                                            >
+                                                <img
+                                                    :src="imageSrc"
+                                                    :alt="imageSrc.title"
+                                                    class="products-slider__pagination-img"
+                                                />
+                                            </div>
                                         </SwiperSlide>
-                                        <!-- <div class="products-slider__pagination-item"></div>
-
-                        <div class="products-slider__pagination-item"></div>
-                        <div class="products-slider__pagination-item"></div>
-                        <div class="products-slider__pagination-item"></div> -->
                                     </Swiper>
                                 </div>
                                 <img
-                                    src="../assets/images/products-slider/product-slider-1.jpg"
-                                    alt="Item-1"
+                                    :src="productInfo.images[0]"
+                                    :alt="productInfo.title"
                                     class="products-slider__img"
                                 />
                             </div>
@@ -124,7 +141,7 @@
                                         <div
                                             class="products-slider__price-num--default"
                                         >
-                                            192,69 ₽
+                                            {{ productInfo.price }} ₽
                                         </div>
                                         <div
                                             class="products-slider__price-text"
@@ -135,7 +152,15 @@
 
                                     <div class="products-slider__price-item">
                                         <div class="products-slider__price-num">
-                                            108,99 ₽
+                                            {{
+                                                (
+                                                    productInfo.price -
+                                                    (productInfo.price *
+                                                        productInfo.discountPercentage) /
+                                                        100
+                                                ).toFixed(2)
+                                            }}
+                                            ₽
                                         </div>
                                         <div
                                             class="products-slider__price-text"
@@ -223,7 +248,7 @@
                                                 Бренд
                                             </td>
                                             <td class="products-table__value">
-                                                ПРОСТОКВАШИНО
+                                                {{ productInfo.brand }}
                                             </td>
                                         </tr>
                                         <tr>
@@ -239,7 +264,7 @@
                                                 Упаковка
                                             </td>
                                             <td class="products-table__value">
-                                                180 г
+                                                {{ productInfo.weight }} кг
                                             </td>
                                         </tr>
                                     </tbody>
@@ -566,7 +591,7 @@
             </div>
         </section>
 
-        <section class="section section--reviews">
+        <section class="section section--reviews" id="reviews">
             <h2 class="section-title">Отзывы</h2>
             <div class="reviews">
                 <div class="reviews__wrapper">
@@ -1282,16 +1307,17 @@ export default {
     },
     data() {
         return {
-            slides: [
-                { text: "Слайд 1" },
-                { text: "Слайд 2" },
-                { text: "Слайд 3" },
-            ],
             // galleryTop: this.ref(null),
             // galleryThumbs: this.ref(null),
         };
     },
-    computed: {},
+    computed: {
+        productInfo() {
+            this.$store.dispatch("productItem", this.$route.params.id);
+            const product = this.$store.getters.getProductItem;
+            return product;
+        },
+    },
 };
 </script>
 
@@ -1353,7 +1379,7 @@ export default {
 }
 .products-slider__pagination-item {
     background-color: #fff;
-    background-image: url(../assets/images/pagination-items/pagination-item-1.jpg);
+    /* background-image: url(../assets/images/pagination-items/pagination-item-1.jpg); */
     background-size: 100% 100%;
     background-repeat: no-repeat;
     border-radius: 4px;
@@ -1361,6 +1387,11 @@ export default {
     height: 86px;
     box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.1);
     cursor: pointer;
+}
+.products-slider__pagination-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 .products-slider__item {
     display: flex;
@@ -1382,6 +1413,7 @@ export default {
 .products-slider__text-info {
     display: flex;
     flex-direction: column;
+    width: 100%;
     max-width: 424px;
 }
 .products-slider__price-wrap {

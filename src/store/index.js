@@ -1846,7 +1846,7 @@ const store = createStore({
                         "https://cdn.dummyjson.com/product-images/groceries/kiwi/thumbnail.webp",
                 },
             ],
-
+            productItem: {},
             inTheBasket: [],
             catalogIsLoaded: true,
             isLoadedError: false,
@@ -1856,6 +1856,9 @@ const store = createStore({
     mutations: {
         setProducts(state, data) {
             state.products = data;
+        },
+        setProductItem(state, data) {
+            state.productItem = data;
         },
         toggleCatalogIsLoaded(state, flag) {
             state.catalogIsLoaded = flag;
@@ -1870,6 +1873,9 @@ const store = createStore({
     getters: {
         getProducts(state) {
             return state.products;
+        },
+        getProductItem(state) {
+            return state.productItem;
         },
         getCatalogIsLoaded(state) {
             return state.catalogIsLoaded;
@@ -1898,6 +1904,30 @@ const store = createStore({
         //         ctx.commit("toggleIsLoadedError", true);
         //     }
         // },
+        // async productItem(ctx, id) {
+        //     console.log(id);
+
+        //     try {
+        //         const res = await fetch("https://dummyjson.com/products/" + id);
+        //         const product = await res.json();
+        //         console.log(JSON.stringify(product));
+        //         ctx.commit("setProductItem", product);
+        //         // ctx.commit("toggleCatalogIsLoaded", true);
+        //     } catch (err) {
+        //         console.log("ERRRRRorrr: " + err);
+        //         // ctx.commit("toggleCatalogIsLoaded", true);
+        //         // ctx.commit("toggleIsLoadedError", true);
+        //     }
+        // },
+        productItem(ctx, id) {
+            console.log("id in actions: ", id);
+            console.log("products in actions: ", ctx.getters.getProducts);
+            const product = ctx.getters.getProducts.filter(
+                (item) => Number(item.id) === Number(id)
+            );
+            console.log("product[0]", product[0].title);
+            ctx.commit("setProductItem", product[0]);
+        },
         newNumbersOfCard(ctx, value) {
             ctx.commit("setNumberOfCard", value);
         },

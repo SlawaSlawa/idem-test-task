@@ -3,7 +3,12 @@
         <div class="catalog">
             <v-preloader></v-preloader>
             <v-error-message v-if="getIsLoadedError"></v-error-message>
-            <div class="card" v-for="card in catalog" :key="card.id">
+            <div
+                class="card"
+                v-for="card in catalog"
+                :key="card.id"
+                @click="gotoPageById(card.id)"
+            >
                 <div class="card__img-wrap">
                     <!-- <img
                         :src="card.thumbnail"
@@ -77,6 +82,9 @@ export default {
             } else {
                 this.isBtnDisabled = true;
             }
+        },
+        gotoPageById(id) {
+            this.$router.push("/products/" + id);
         },
     },
     computed: {

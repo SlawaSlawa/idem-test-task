@@ -301,6 +301,7 @@
                     <SwiperSlide
                         v-for="card in productsByCategory"
                         :key="card.id"
+                        @click="gotoPageById(card.id)"
                     >
                         <div class="card">
                             <div class="card__img-wrap">
@@ -578,6 +579,7 @@
                     <SwiperSlide
                         v-for="(card, index) in actionsArr"
                         :key="index"
+                        @click="gotoPageById(card.id)"
                     >
                         <div class="card">
                             <div class="card__img-wrap">
@@ -654,6 +656,15 @@ export default {
         return {
             reviewsRatingTableIndex: 5,
         };
+    },
+    methods: {
+        gotoPageById(id) {
+            this.scrollToTop();
+            this.$router.push("/products/" + id);
+        },
+        scrollToTop() {
+            window.scrollTo(0, 0);
+        },
     },
     computed: {
         productInfo() {

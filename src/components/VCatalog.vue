@@ -84,7 +84,11 @@ export default {
             }
         },
         gotoPageById(id) {
+            this.scrollToTop();
             this.$router.push("/products/" + id);
+        },
+        scrollToTop() {
+            window.scrollTo(0, 0);
         },
     },
     computed: {

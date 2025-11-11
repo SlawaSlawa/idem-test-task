@@ -1,15 +1,7 @@
 <template>
     <main class="main">
-        {{ $route.params.id }}
-        {{ productInfo }}
-        {{ productItem }}
         <div class="products-slider">
-            <Swiper
-                ref="galleryTop"
-                thumbs="{ swiper: galleryThumbs }"
-                :slides-per-view="1"
-                :space-between="20"
-            >
+            <Swiper :slides-per-view="1" :space-between="20">
                 <SwiperSlide v-for="(slide, idx) in 10" :key="idx">
                     <h2 class="products-slider__title">
                         {{ productInfo.title }}
@@ -108,7 +100,6 @@
                                         :space-between="20"
                                         :direction="'vertical'"
                                         ref="galleryThumbs"
-                                        thumbs="true"
                                     >
                                         <SwiperSlide
                                             v-for="(
@@ -307,15 +298,20 @@
                         <v-error-message
                             v-if="getIsLoadedError"
                         ></v-error-message> -->
-                    <SwiperSlide>
+                    <SwiperSlide
+                        v-for="card in productsByCategory"
+                        :key="card.id"
+                    >
                         <div class="card">
                             <div class="card__img-wrap">
                                 <img
-                                    src="../assets/images/catalog/product-1.png"
-                                    alt="Product - 1"
+                                    :src="card.thumbnail"
+                                    :alt="card.title"
                                     class="card__img"
                                 />
-                                <div class="card__badge">-50%</div>
+                                <div class="card__badge">
+                                    {{ card.discountPercentage }}%
+                                </div>
                                 <div class="card__like">
                                     <img
                                         src="../assets/images/icons/like-icon.svg"
@@ -328,261 +324,16 @@
                                 <div class="card__price-wrap">
                                     <div class="card__price-item">
                                         <div class="card__price-num">
-                                            44,50 ₽
+                                            {{ card.price }} ₽
                                         </div>
                                     </div>
                                 </div>
                                 <div class="card__title-wrap">
                                     <h3 class="card__title">
-                                        Г/Ц Блинчики с мясом вес, Россия
+                                        {{ card.title }}
                                     </h3>
                                 </div>
-                                <v-rating :rating="2"></v-rating>
-                                <button class="btn btn--card">В корзину</button>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div class="card">
-                            <div class="card__img-wrap">
-                                <img
-                                    src="../assets/images/catalog/product-2.png"
-                                    alt="Product - 1"
-                                    class="card__img"
-                                />
-                                <div class="card__badge">-50%</div>
-                                <div class="card__like">
-                                    <img
-                                        src="../assets/images/icons/like-icon.svg"
-                                        alt="Like"
-                                        class="card__like-img"
-                                    />
-                                </div>
-                            </div>
-                            <div class="card__content-wrap">
-                                <div class="card__price-wrap">
-                                    <div class="card__price-item">
-                                        <div class="card__price-num">
-                                            44,50 ₽
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card__title-wrap">
-                                    <h3 class="card__title">
-                                        Г/Ц Блинчики с мясом вес, Россия
-                                    </h3>
-                                </div>
-                                <v-rating :rating="2"></v-rating>
-                                <button class="btn btn--card">В корзину</button>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div class="card">
-                            <div class="card__img-wrap">
-                                <img
-                                    src="../assets/images/catalog/product-3.png"
-                                    alt="Product - 1"
-                                    class="card__img"
-                                />
-                                <div class="card__badge">-50%</div>
-                                <div class="card__like">
-                                    <img
-                                        src="../assets/images/icons/like-icon.svg"
-                                        alt="Like"
-                                        class="card__like-img"
-                                    />
-                                </div>
-                            </div>
-                            <div class="card__content-wrap">
-                                <div class="card__price-wrap">
-                                    <div class="card__price-item">
-                                        <div class="card__price-num">
-                                            44,50 ₽
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card__title-wrap">
-                                    <h3 class="card__title">
-                                        Г/Ц Блинчики с мясом вес, Россия
-                                    </h3>
-                                </div>
-                                <v-rating :rating="2"></v-rating>
-                                <button class="btn btn--card">В корзину</button>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div class="card">
-                            <div class="card__img-wrap">
-                                <img
-                                    src="../assets/images/catalog/product-4.png"
-                                    alt="Product - 1"
-                                    class="card__img"
-                                />
-                                <div class="card__badge">-50%</div>
-                                <div class="card__like">
-                                    <img
-                                        src="../assets/images/icons/like-icon.svg"
-                                        alt="Like"
-                                        class="card__like-img"
-                                    />
-                                </div>
-                            </div>
-                            <div class="card__content-wrap">
-                                <div class="card__price-wrap">
-                                    <div class="card__price-item">
-                                        <div class="card__price-num">
-                                            44,50 ₽
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card__title-wrap">
-                                    <h3 class="card__title">
-                                        Г/Ц Блинчики с мясом вес, Россия
-                                    </h3>
-                                </div>
-                                <v-rating :rating="2"></v-rating>
-                                <button class="btn btn--card">В корзину</button>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div class="card">
-                            <div class="card__img-wrap">
-                                <img
-                                    src="../assets/images/catalog/product-1.png"
-                                    alt="Product - 1"
-                                    class="card__img"
-                                />
-                                <div class="card__badge">-50%</div>
-                                <div class="card__like">
-                                    <img
-                                        src="../assets/images/icons/like-icon.svg"
-                                        alt="Like"
-                                        class="card__like-img"
-                                    />
-                                </div>
-                            </div>
-                            <div class="card__content-wrap">
-                                <div class="card__price-wrap">
-                                    <div class="card__price-item">
-                                        <div class="card__price-num">
-                                            44,50 ₽
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card__title-wrap">
-                                    <h3 class="card__title">
-                                        Г/Ц Блинчики с мясом вес, Россия
-                                    </h3>
-                                </div>
-                                <v-rating :rating="2"></v-rating>
-                                <button class="btn btn--card">В корзину</button>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div class="card">
-                            <div class="card__img-wrap">
-                                <img
-                                    src="../assets/images/catalog/product-2.png"
-                                    alt="Product - 1"
-                                    class="card__img"
-                                />
-                                <div class="card__badge">-50%</div>
-                                <div class="card__like">
-                                    <img
-                                        src="../assets/images/icons/like-icon.svg"
-                                        alt="Like"
-                                        class="card__like-img"
-                                    />
-                                </div>
-                            </div>
-                            <div class="card__content-wrap">
-                                <div class="card__price-wrap">
-                                    <div class="card__price-item">
-                                        <div class="card__price-num">
-                                            44,50 ₽
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card__title-wrap">
-                                    <h3 class="card__title">
-                                        Г/Ц Блинчики с мясом вес, Россия
-                                    </h3>
-                                </div>
-                                <v-rating :rating="2"></v-rating>
-                                <button class="btn btn--card">В корзину</button>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div class="card">
-                            <div class="card__img-wrap">
-                                <img
-                                    src="../assets/images/catalog/product-3.png"
-                                    alt="Product - 1"
-                                    class="card__img"
-                                />
-                                <div class="card__badge">-50%</div>
-                                <div class="card__like">
-                                    <img
-                                        src="../assets/images/icons/like-icon.svg"
-                                        alt="Like"
-                                        class="card__like-img"
-                                    />
-                                </div>
-                            </div>
-                            <div class="card__content-wrap">
-                                <div class="card__price-wrap">
-                                    <div class="card__price-item">
-                                        <div class="card__price-num">
-                                            44,50 ₽
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card__title-wrap">
-                                    <h3 class="card__title">
-                                        Г/Ц Блинчики с мясом вес, Россия
-                                    </h3>
-                                </div>
-                                <v-rating :rating="2"></v-rating>
-                                <button class="btn btn--card">В корзину</button>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div class="card">
-                            <div class="card__img-wrap">
-                                <img
-                                    src="../assets/images/catalog/product-4.png"
-                                    alt="Product - 1"
-                                    class="card__img"
-                                />
-                                <div class="card__badge">-50%</div>
-                                <div class="card__like">
-                                    <img
-                                        src="../assets/images/icons/like-icon.svg"
-                                        alt="Like"
-                                        class="card__like-img"
-                                    />
-                                </div>
-                            </div>
-                            <div class="card__content-wrap">
-                                <div class="card__price-wrap">
-                                    <div class="card__price-item">
-                                        <div class="card__price-num">
-                                            44,50 ₽
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card__title-wrap">
-                                    <h3 class="card__title">
-                                        Г/Ц Блинчики с мясом вес, Россия
-                                    </h3>
-                                </div>
-                                <v-rating :rating="2"></v-rating>
+                                <v-rating :rating="card.rating"></v-rating>
                                 <button class="btn btn--card">В корзину</button>
                             </div>
                         </div>
@@ -597,44 +348,37 @@
                 <div class="reviews__wrapper">
                     <div class="reviews__rating">
                         <div class="reviews__rating-head">
-                            <v-rating :rating="4"></v-rating>
+                            <v-rating :rating="productInfo.rating"></v-rating>
                             <span class="reviews__rating-head-text">
-                                <span>4</span> из 5</span
+                                <span>{{ productInfo.rating }}</span> из 5</span
                             >
                         </div>
                         <ul class="reviews__rating-list">
-                            <li class="reviews__rating-item">
-                                <span class="reviews__rating-item-num">5</span>
-                                <v-rating :rating="5"></v-rating>
-                                <span class="reviews__rating-item-res">1</span>
-                            </li>
-                            <li class="reviews__rating-item">
-                                <span class="reviews__rating-item-num">4</span>
-                                <v-rating :rating="4"></v-rating>
-                                <span class="reviews__rating-item-res">1</span>
-                            </li>
-                            <li class="reviews__rating-item">
-                                <span class="reviews__rating-item-num">3</span>
-                                <v-rating :rating="3"></v-rating>
-                                <span class="reviews__rating-item-res">0</span>
-                            </li>
-                            <li class="reviews__rating-item">
-                                <span class="reviews__rating-item-num">2</span>
-                                <v-rating :rating="2"></v-rating>
-                                <span class="reviews__rating-item-res">0</span>
-                            </li>
-                            <li class="reviews__rating-item">
-                                <span class="reviews__rating-item-num">1</span>
-                                <v-rating :rating="1"></v-rating>
-                                <span class="reviews__rating-item-res">1</span>
+                            <li
+                                class="reviews__rating-item"
+                                v-for="(item, index) in reviewsRatingTable"
+                                :key="index"
+                            >
+                                <span class="reviews__rating-item-num">{{
+                                    (reviewsRatingTableIndex =
+                                        reviewsRatingTable.length - index)
+                                }}</span>
+                                <v-rating :rating="item"></v-rating>
+                                <span class="reviews__rating-item-res">{{
+                                    item
+                                }}</span>
                             </li>
                         </ul>
                     </div>
                     <div class="wrapper">
                         <ul class="reviews__list">
-                            <li class="reviews__item">
-                                <div class="rewievs__item-header">
-                                    <div class="rewievs__item-avatar">
+                            <li
+                                class="reviews__item"
+                                v-for="(review, index) in reviewsArr"
+                                :key="index"
+                            >
+                                <div class="reviews__item-header">
+                                    <div class="reviews__item-avatar">
                                         <svg
                                             width="16"
                                             height="16"
@@ -657,95 +401,19 @@
                                         </svg>
                                     </div>
                                     <div class="reviews__item-name">
-                                        Татьяна
+                                        {{ review.reviewrName }}
                                     </div>
                                 </div>
-                                <div class="rewievs__item-rating">
-                                    <v-rating :rating="5"></v-rating>
-                                    <span class="reviews__item-date"
-                                        >22.02.2020</span
-                                    >
+                                <div class="reviews__item-rating">
+                                    <v-rating
+                                        :rating="review.rating"
+                                    ></v-rating>
+                                    <span class="reviews__item-date">{{
+                                        convertDate(review.date)
+                                    }}</span>
                                 </div>
-                                <p class="rewievs__item-text">приятный вкус</p>
-                            </li>
-                            <li class="reviews__item">
-                                <div class="rewievs__item-header">
-                                    <div class="rewievs__item-avatar">
-                                        <svg
-                                            width="16"
-                                            height="16"
-                                            viewBox="0 0 16 16"
-                                            fill="none"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                            <path
-                                                fill-rule="evenodd"
-                                                clip-rule="evenodd"
-                                                d="M2.33301 12.6666C2.33301 11.0098 3.67615 9.66663 5.33301 9.66663H10.6663C12.3232 9.66663 13.6663 11.0098 13.6663 12.6666V14C13.6663 14.1841 13.5171 14.3333 13.333 14.3333C13.1489 14.3333 12.9997 14.1841 12.9997 14V12.6666C12.9997 11.378 11.955 10.3333 10.6663 10.3333H5.33301C4.04434 10.3333 2.99967 11.378 2.99967 12.6666V14C2.99967 14.1841 2.85044 14.3333 2.66634 14.3333C2.48225 14.3333 2.33301 14.1841 2.33301 14V12.6666Z"
-                                                fill="#414141"
-                                            />
-                                            <path
-                                                fill-rule="evenodd"
-                                                clip-rule="evenodd"
-                                                d="M5 4.66663C5 3.00977 6.34315 1.66663 8 1.66663C9.65685 1.66663 11 3.00977 11 4.66663C11 6.32348 9.65685 7.66663 8 7.66663C6.34315 7.66663 5 6.32348 5 4.66663ZM8 2.33329C6.71134 2.33329 5.66667 3.37796 5.66667 4.66663C5.66667 5.95529 6.71134 6.99996 8 6.99996C9.28866 6.99996 10.3333 5.95529 10.3333 4.66663C10.3333 3.37796 9.28866 2.33329 8 2.33329Z"
-                                                fill="#414141"
-                                            />
-                                        </svg>
-                                    </div>
-                                    <div class="reviews__item-name">Мария</div>
-                                </div>
-                                <div class="rewievs__item-rating">
-                                    <v-rating :rating="4"></v-rating>
-                                    <span class="reviews__item-date"
-                                        >22.02.2020</span
-                                    >
-                                </div>
-                                <p class="rewievs__item-text">
-                                    Масло среднее, есть вкуснее
-                                </p>
-                            </li>
-                            <li class="reviews__item">
-                                <div class="rewievs__item-header">
-                                    <div class="rewievs__item-avatar">
-                                        <svg
-                                            width="16"
-                                            height="16"
-                                            viewBox="0 0 16 16"
-                                            fill="none"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                            <path
-                                                fill-rule="evenodd"
-                                                clip-rule="evenodd"
-                                                d="M2.33301 12.6666C2.33301 11.0098 3.67615 9.66663 5.33301 9.66663H10.6663C12.3232 9.66663 13.6663 11.0098 13.6663 12.6666V14C13.6663 14.1841 13.5171 14.3333 13.333 14.3333C13.1489 14.3333 12.9997 14.1841 12.9997 14V12.6666C12.9997 11.378 11.955 10.3333 10.6663 10.3333H5.33301C4.04434 10.3333 2.99967 11.378 2.99967 12.6666V14C2.99967 14.1841 2.85044 14.3333 2.66634 14.3333C2.48225 14.3333 2.33301 14.1841 2.33301 14V12.6666Z"
-                                                fill="#414141"
-                                            />
-                                            <path
-                                                fill-rule="evenodd"
-                                                clip-rule="evenodd"
-                                                d="M5 4.66663C5 3.00977 6.34315 1.66663 8 1.66663C9.65685 1.66663 11 3.00977 11 4.66663C11 6.32348 9.65685 7.66663 8 7.66663C6.34315 7.66663 5 6.32348 5 4.66663ZM8 2.33329C6.71134 2.33329 5.66667 3.37796 5.66667 4.66663C5.66667 5.95529 6.71134 6.99996 8 6.99996C9.28866 6.99996 10.3333 5.95529 10.3333 4.66663C10.3333 3.37796 9.28866 2.33329 8 2.33329Z"
-                                                fill="#414141"
-                                            />
-                                        </svg>
-                                    </div>
-                                    <div class="reviews__item-name">
-                                        Алексей
-                                    </div>
-                                </div>
-                                <div class="rewievs__item-rating">
-                                    <v-rating :rating="1"></v-rating>
-                                    <span class="reviews__item-date"
-                                        >22.02.2020</span
-                                    >
-                                </div>
-                                <p class="rewievs__item-text">
-                                    Покупали в том числе в этом весе. Масло по
-                                    вкусу и органолептическим свойствам
-                                    совершенно не похоже на натуральное.
-                                    Упаковка выглядит как напечатанная на
-                                    дешёвом принтере. На наш взгляд продукт
-                                    является подделкой или контрафактной
-                                    продукцией. Просим разобраться.
+                                <p class="reviews__item-text">
+                                    {{ review.comment }}
                                 </p>
                             </li>
                         </ul>
@@ -753,7 +421,10 @@
                             <div class="reviews-form__header">
                                 <h3 class="reviews-form__title">Ваша оценка</h3>
                                 <div class="reviews-form__rating">
-                                    <button class="reviews-form__rating-item">
+                                    <button
+                                        type="button"
+                                        class="reviews-form__rating-item"
+                                    >
                                         <svg
                                             width="24"
                                             height="24"
@@ -767,7 +438,10 @@
                                             />
                                         </svg>
                                     </button>
-                                    <button class="reviews-form__rating-item">
+                                    <button
+                                        type="button"
+                                        class="reviews-form__rating-item"
+                                    >
                                         <svg
                                             width="24"
                                             height="24"
@@ -781,7 +455,10 @@
                                             />
                                         </svg>
                                     </button>
-                                    <button class="reviews-form__rating-item">
+                                    <button
+                                        type="button"
+                                        class="reviews-form__rating-item"
+                                    >
                                         <svg
                                             width="24"
                                             height="24"
@@ -795,7 +472,10 @@
                                             />
                                         </svg>
                                     </button>
-                                    <button class="reviews-form__rating-item">
+                                    <button
+                                        type="button"
+                                        class="reviews-form__rating-item"
+                                    >
                                         <svg
                                             width="24"
                                             height="24"
@@ -809,7 +489,10 @@
                                             />
                                         </svg>
                                     </button>
-                                    <button class="reviews-form__rating-item">
+                                    <button
+                                        type="button"
+                                        class="reviews-form__rating-item"
+                                    >
                                         <svg
                                             width="24"
                                             height="24"
@@ -892,15 +575,20 @@
                         <v-error-message
                             v-if="getIsLoadedError"
                         ></v-error-message> -->
-                    <SwiperSlide>
+                    <SwiperSlide
+                        v-for="(card, index) in actionsArr"
+                        :key="index"
+                    >
                         <div class="card">
                             <div class="card__img-wrap">
                                 <img
-                                    src="../assets/images/catalog/blinchiki_s_myasom.png"
-                                    alt="Product - 1"
+                                    :src="card.thumbnail"
+                                    :alt="card.title"
                                     class="card__img"
                                 />
-                                <div class="card__badge">-50%</div>
+                                <div class="card__badge">
+                                    -{{ card.discountPercentage }}%
+                                </div>
                                 <div class="card__like">
                                     <img
                                         src="../assets/images/icons/like-icon.svg"
@@ -910,358 +598,16 @@
                                 </div>
                             </div>
                             <div class="card__content-wrap">
-                                <div class="card__price-wrap">
-                                    <div class="card__price-item">
-                                        <div class="card__price-num">
-                                            44,50 ₽
-                                        </div>
-                                        <div class="card__price-text">
-                                            С картой
-                                        </div>
-                                    </div>
-                                    <div class="card__price-item">
-                                        <div class="card__price-num--default">
-                                            50,51 ₽
-                                        </div>
-                                        <div class="card__price-text">
-                                            Обычная
-                                        </div>
-                                    </div>
-                                </div>
+                                <v-card-price
+                                    :price="card.price"
+                                    :discount="card.discountPercentage"
+                                ></v-card-price>
                                 <div class="card__title-wrap">
                                     <h3 class="card__title">
-                                        Г/Ц Блинчики с мясом вес, Россия
+                                        {{ card.title }}
                                     </h3>
                                 </div>
-                                <v-rating :rating="2"></v-rating>
-                                <button class="btn btn--card">В корзину</button>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div class="card">
-                            <div class="card__img-wrap">
-                                <img
-                                    src="../assets/images/catalog/product-4.png"
-                                    alt="Product - 1"
-                                    class="card__img"
-                                />
-                                <div class="card__badge">-50%</div>
-                                <div class="card__like">
-                                    <img
-                                        src="../assets/images/icons/like-icon.svg"
-                                        alt="Like"
-                                        class="card__like-img"
-                                    />
-                                </div>
-                            </div>
-                            <div class="card__content-wrap">
-                                <div class="card__price-wrap">
-                                    <div class="card__price-item">
-                                        <div class="card__price-num">
-                                            44,50 ₽
-                                        </div>
-                                        <div class="card__price-text">
-                                            С картой
-                                        </div>
-                                    </div>
-                                    <div class="card__price-item">
-                                        <div class="card__price-num--default">
-                                            50,50 ₽
-                                        </div>
-                                        <div class="card__price-text">
-                                            Обычная
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card__title-wrap">
-                                    <h3 class="card__title">
-                                        Молоко ПРОСТОКВАШИНО паст. питьевое
-                                        цельное отборное
-                                    </h3>
-                                </div>
-                                <v-rating :rating="2"></v-rating>
-                                <button class="btn btn--card">В корзину</button>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div class="card">
-                            <div class="card__img-wrap">
-                                <img
-                                    src="../assets/images/catalog/product-2.png"
-                                    alt="Product - 1"
-                                    class="card__img"
-                                />
-                                <div class="card__badge">-50%</div>
-                                <div class="card__like">
-                                    <img
-                                        src="../assets/images/icons/like-icon.svg"
-                                        alt="Like"
-                                        class="card__like-img"
-                                    />
-                                </div>
-                            </div>
-                            <div class="card__content-wrap">
-                                <div class="card__price-wrap">
-                                    <div class="card__price-item">
-                                        <div class="card__price-num">
-                                            44,50 ₽
-                                        </div>
-                                        <div class="card__price-text">
-                                            С картой
-                                        </div>
-                                    </div>
-                                    <div class="card__price-item">
-                                        <div class="card__price-num--default">
-                                            50,50 ₽
-                                        </div>
-                                        <div class="card__price-text">
-                                            Обычная
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card__title-wrap">
-                                    <h3 class="card__title">
-                                        Колбаса сырокопченая МЯСНАЯ ИСТОРИЯ
-                                        Сальчичон и Тоскан
-                                    </h3>
-                                </div>
-                                <v-rating :rating="2"></v-rating>
-                                <button class="btn btn--card">В корзину</button>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div class="card">
-                            <div class="card__img-wrap">
-                                <img
-                                    src="../assets/images/catalog/product-3.png"
-                                    alt="Product - 3"
-                                    class="card__img"
-                                />
-                                <div class="card__badge">-50%</div>
-                                <div class="card__like">
-                                    <img
-                                        src="../assets/images/icons/like-icon.svg"
-                                        alt="Like"
-                                        class="card__like-img"
-                                    />
-                                </div>
-                            </div>
-                            <div class="card__content-wrap">
-                                <div class="card__price-wrap">
-                                    <div class="card__price-item">
-                                        <div class="card__price-num">
-                                            44,50 ₽
-                                        </div>
-                                        <div class="card__price-text">
-                                            С картой
-                                        </div>
-                                    </div>
-                                    <div class="card__price-item">
-                                        <div class="card__price-num--default">
-                                            50,50 ₽
-                                        </div>
-                                        <div class="card__price-text">
-                                            Обычная
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card__title-wrap">
-                                    <h3 class="card__title">
-                                        Сосиски вареные МЯСНАЯ ИСТОРИЯ Молочные
-                                        и С сыро
-                                    </h3>
-                                </div>
-                                <v-rating :rating="2"></v-rating>
-                                <button class="btn btn--card">В корзину</button>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div class="card">
-                            <div class="card__img-wrap">
-                                <img
-                                    src="../assets/images/catalog/blinchiki_s_myasom.png"
-                                    alt="Product - 1"
-                                    class="card__img"
-                                />
-                                <div class="card__badge">-50%</div>
-                                <div class="card__like">
-                                    <img
-                                        src="../assets/images/icons/like-icon.svg"
-                                        alt="Like"
-                                        class="card__like-img"
-                                    />
-                                </div>
-                            </div>
-                            <div class="card__content-wrap">
-                                <div class="card__price-wrap">
-                                    <div class="card__price-item">
-                                        <div class="card__price-num">
-                                            44,50 ₽
-                                        </div>
-                                        <div class="card__price-text">
-                                            С картой
-                                        </div>
-                                    </div>
-                                    <div class="card__price-item">
-                                        <div class="card__price-num--default">
-                                            50,50 ₽
-                                        </div>
-                                        <div class="card__price-text">
-                                            Обычная
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card__title-wrap">
-                                    <h3 class="card__title">
-                                        Г/Ц Блинчики с мясом вес, Россия
-                                    </h3>
-                                </div>
-                                <v-rating :rating="2"></v-rating>
-                                <button class="btn btn--card">В корзину</button>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div class="card">
-                            <div class="card__img-wrap">
-                                <img
-                                    src="../assets/images/catalog/product-4.png"
-                                    alt="Product - 1"
-                                    class="card__img"
-                                />
-                                <div class="card__badge">-50%</div>
-                                <div class="card__like">
-                                    <img
-                                        src="../assets/images/icons/like-icon.svg"
-                                        alt="Like"
-                                        class="card__like-img"
-                                    />
-                                </div>
-                            </div>
-                            <div class="card__content-wrap">
-                                <div class="card__price-wrap">
-                                    <div class="card__price-item">
-                                        <div class="card__price-num">
-                                            44,50 ₽
-                                        </div>
-                                        <div class="card__price-text">
-                                            С картой
-                                        </div>
-                                    </div>
-                                    <div class="card__price-item">
-                                        <div class="card__price-num--default">
-                                            50,50 ₽
-                                        </div>
-                                        <div class="card__price-text">
-                                            Обычная
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card__title-wrap">
-                                    <h3 class="card__title">
-                                        Молоко ПРОСТОКВАШИНО паст. питьевое
-                                        цельное отборное
-                                    </h3>
-                                </div>
-                                <v-rating :rating="2"></v-rating>
-                                <button class="btn btn--card">В корзину</button>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div class="card">
-                            <div class="card__img-wrap">
-                                <img
-                                    src="../assets/images/catalog/product-2.png"
-                                    alt="Product - 1"
-                                    class="card__img"
-                                />
-                                <div class="card__badge">-50%</div>
-                                <div class="card__like">
-                                    <img
-                                        src="../assets/images/icons/like-icon.svg"
-                                        alt="Like"
-                                        class="card__like-img"
-                                    />
-                                </div>
-                            </div>
-                            <div class="card__content-wrap">
-                                <div class="card__price-wrap">
-                                    <div class="card__price-item">
-                                        <div class="card__price-num">
-                                            44,50 ₽
-                                        </div>
-                                        <div class="card__price-text">
-                                            С картой
-                                        </div>
-                                    </div>
-                                    <div class="card__price-item">
-                                        <div class="card__price-num--default">
-                                            50,50 ₽
-                                        </div>
-                                        <div class="card__price-text">
-                                            Обычная
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card__title-wrap">
-                                    <h3 class="card__title">
-                                        Колбаса сырокопченая МЯСНАЯ ИСТОРИЯ
-                                        Сальчичон и Тоскан
-                                    </h3>
-                                </div>
-                                <v-rating :rating="2"></v-rating>
-                                <button class="btn btn--card">В корзину</button>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div class="card">
-                            <div class="card__img-wrap">
-                                <img
-                                    src="../assets/images/catalog/product-3.png"
-                                    alt="Product - 3"
-                                    class="card__img"
-                                />
-                                <div class="card__badge">-50%</div>
-                                <div class="card__like">
-                                    <img
-                                        src="../assets/images/icons/like-icon.svg"
-                                        alt="Like"
-                                        class="card__like-img"
-                                    />
-                                </div>
-                            </div>
-                            <div class="card__content-wrap">
-                                <div class="card__price-wrap">
-                                    <div class="card__price-item">
-                                        <div class="card__price-num">
-                                            44,50 ₽
-                                        </div>
-                                        <div class="card__price-text">
-                                            С картой
-                                        </div>
-                                    </div>
-                                    <div class="card__price-item">
-                                        <div class="card__price-num--default">
-                                            50,50 ₽
-                                        </div>
-                                        <div class="card__price-text">
-                                            Обычная
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card__title-wrap">
-                                    <h3 class="card__title">
-                                        Сосиски вареные МЯСНАЯ ИСТОРИЯ Молочные
-                                        и С сыро
-                                    </h3>
-                                </div>
-                                <v-rating :rating="2"></v-rating>
+                                <v-rating :rating="card.rating"></v-rating>
                                 <button class="btn btn--card">В корзину</button>
                             </div>
                         </div>
@@ -1274,20 +620,19 @@
 
 <script>
 import VRating from "@/components/VRating.vue";
+import VCardPrice from "@/components/VCardPrice.vue";
 // import VPreloader from "@/components/VPreloader.vue";
-// import { ref } from "vue";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/vue";
 
-// import { Thumbs } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
-// import "swiper/css/thumbs";
 
 export default {
     name: "ProductView",
     components: {
         VRating,
+        VCardPrice,
         // VPreloader,
         Swiper,
         SwiperSlide,
@@ -1307,8 +652,7 @@ export default {
     },
     data() {
         return {
-            // galleryTop: this.ref(null),
-            // galleryThumbs: this.ref(null),
+            reviewsRatingTableIndex: 5,
         };
     },
     computed: {
@@ -1316,6 +660,44 @@ export default {
             this.$store.dispatch("productItem", this.$route.params.id);
             const product = this.$store.getters.getProductItem;
             return product;
+        },
+        productsByCategory() {
+            this.$store.dispatch(
+                "productsByCategory",
+                this.productInfo.category
+            );
+            const productsArr = this.$store.getters.getProductsByCategory;
+            return productsArr;
+        },
+        reviewsArr() {
+            this.$store.dispatch("reviews");
+            return this.$store.getters.getReviewsArr;
+        },
+        actionsArr() {
+            this.$store.dispatch("actionsArr");
+            return this.$store.getters.getActionsArr;
+        },
+        reviewsRatingTable() {
+            const resultTable = [0, 0, 0, 0, 0];
+            this.reviewsArr.forEach((item) => {
+                if (item.rating === 5) resultTable[4]++;
+                if (item.rating === 4) resultTable[3]++;
+                if (item.rating === 3) resultTable[2]++;
+                if (item.rating === 2) resultTable[1]++;
+                if (item.rating === 1) resultTable[0]++;
+            });
+            return resultTable.slice().reverse();
+        },
+        convertDate() {
+            return (date) => {
+                date = new Date(date);
+                let day = date.getDate();
+                day = day < 10 ? "0" + day : day;
+                let month = date.getMonth() + 1;
+                month = month < 10 ? "0" + month : month;
+                let year = date.getFullYear();
+                return day + "." + month + "." + year;
+            };
         },
     },
 };
@@ -1560,13 +942,13 @@ export default {
 .reviews__item {
     margin-bottom: 40px;
 }
-.rewievs__item-header {
+.reviews__item-header {
     display: flex;
     align-items: center;
     gap: 8px;
     margin-bottom: 8px;
 }
-.rewievs__item-avatar {
+.reviews__item-avatar {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1580,7 +962,7 @@ export default {
 .reviews__item-name {
     font-weight: 500;
 }
-.rewievs__item-rating {
+.reviews__item-rating {
     display: flex;
     gap: 16px;
     font-size: 12px;
@@ -1812,7 +1194,7 @@ export default {
     .reviews__item {
         margin-bottom: 16px;
     }
-    .rewievs__item-text {
+    .reviews__item-text {
         font-size: 14px;
     }
     .reviews-form__textarea {

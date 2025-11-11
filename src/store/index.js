@@ -1,67 +1,5 @@
 import { createStore } from "vuex";
 
-// const store = createStore({
-//     state() {
-//         return {
-//             products: [],
-//             inTheBasket: [],
-//             catalogIsLoaded: false,
-//             isLoadedError: false,
-//             numberOfCards: 16,
-//         };
-//     },
-//     mutations: {
-//         setProducts(state, data) {
-//             state.products = data;
-//         },
-//         toggleCatalogIsLoaded(state, flag) {
-//             state.catalogIsLoaded = flag;
-//         },
-//         toggleIsLoadedError(state, flag) {
-//             state.isLoadedError = flag;
-//         },
-//         setNumberOfCard(state, num) {
-//             state.numberOfCards = num;
-//         },
-//     },
-//     getters: {
-//         getProducts(state) {
-//             return state.products;
-//         },
-//         getCatalogIsLoaded(state) {
-//             return state.catalogIsLoaded;
-//         },
-//         getQuantityInCart(state) {
-//             return state.inTheBasket.length;
-//         },
-//         getIsLoadedError(state) {
-//             return state.isLoadedError;
-//         },
-//         getNumberOfCards(state) {
-//             return state.numberOfCards;
-//         },
-//     },
-//     actions: {
-//         async fetchProducts(ctx) {
-//             try {
-//                 const res = await fetch("https://dummyjson.com/products");
-//                 const productsArr = await res.json();
-//                 console.log(JSON.stringify(productsArr));
-//                 ctx.commit("setProducts", productsArr.products);
-//                 ctx.commit("toggleCatalogIsLoaded", true);
-//             } catch (err) {
-//                 console.log("ERRRRRorrr: " + err);
-//                 ctx.commit("toggleCatalogIsLoaded", true);
-//                 ctx.commit("toggleIsLoadedError", true);
-//             }
-//         },
-//         newNumbersOfCard(ctx, value) {
-//             console.log("newNumbersOfCard", value);
-//             ctx.commit("setNumberOfCard", value);
-//         },
-//     },
-// });
-
 const store = createStore({
     state() {
         return {
@@ -1847,6 +1785,9 @@ const store = createStore({
                 },
             ],
             productItem: {},
+            productsByCategoryArr: [],
+            reviewsArr: [],
+            actionsArr: [],
             inTheBasket: [],
             catalogIsLoaded: true,
             isLoadedError: false,
@@ -1859,6 +1800,15 @@ const store = createStore({
         },
         setProductItem(state, data) {
             state.productItem = data;
+        },
+        setProductsByCategory(state, data) {
+            state.productsByCategoryArr = data;
+        },
+        setReviews(state, reviewsArr) {
+            state.reviewsArr = reviewsArr;
+        },
+        setActionsArr(state, actionsArr) {
+            state.actionsArr = actionsArr;
         },
         toggleCatalogIsLoaded(state, flag) {
             state.catalogIsLoaded = flag;
@@ -1874,8 +1824,17 @@ const store = createStore({
         getProducts(state) {
             return state.products;
         },
+        getProductsByCategory(state) {
+            return state.productsByCategoryArr;
+        },
         getProductItem(state) {
             return state.productItem;
+        },
+        getReviewsArr(state) {
+            return state.reviewsArr;
+        },
+        getActionsArr(state) {
+            return state.actionsArr;
         },
         getCatalogIsLoaded(state) {
             return state.catalogIsLoaded;
@@ -1919,14 +1878,43 @@ const store = createStore({
         //         // ctx.commit("toggleIsLoadedError", true);
         //     }
         // },
+
+        // async productsByCategory(ctx, category) {
+
+        //     try {
+        //         const res = await fetch("https://dummyjson.com/products/category/" + category);
+        //         const productsArr = await res.json();
+        //         ctx.commit("setProductsByCategory", productsArr);
+        //         // ctx.commit("toggleCatalogIsLoaded", true);
+        //     } catch (err) {
+        //         console.log("ERRRRRorrr: " + err);
+        //         // ctx.commit("toggleCatalogIsLoaded", true);
+        //         // ctx.commit("toggleIsLoadedError", true);
+        //     }
+        // },
+
         productItem(ctx, id) {
-            console.log("id in actions: ", id);
-            console.log("products in actions: ", ctx.getters.getProducts);
             const product = ctx.getters.getProducts.filter(
                 (item) => Number(item.id) === Number(id)
             );
-            console.log("product[0]", product[0].title);
             ctx.commit("setProductItem", product[0]);
+        },
+        productsByCategory(ctx, category) {
+            const products = ctx.getters.getProducts.filter(
+                (item) => item.category === category
+            );
+            ctx.commit("setProductsByCategory", products);
+        },
+        reviews(ctx) {
+            const product = ctx.getters.getProductItem;
+            const reviewsArr = product.reviews;
+            ctx.commit("setReviews", reviewsArr);
+        },
+        actionsArr(ctx) {
+            const actionsArr = ctx.getters.getProducts.filter(
+                (item) => item.discountPercentage > 10
+            );
+            ctx.commit("setActionsArr", actionsArr);
         },
         newNumbersOfCard(ctx, value) {
             ctx.commit("setNumberOfCard", value);

@@ -16,7 +16,7 @@
                         class="card__img"
                     /> -->
                     <div class="card__badge">
-                        {{ card.discountPercentage }}%
+                        -{{ card.discountPercentage }}%
                     </div>
                     <div class="card__like">
                         <img

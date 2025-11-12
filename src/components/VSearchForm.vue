@@ -1,6 +1,6 @@
 <template>
     <section class="section section--search">
-        <h2 class="section-min-title" @click="gotoPageById(1)">Поиск</h2>
+        <h2 class="section-min-title">Поиск</h2>
         <form class="search-form">
             <div class="search-form__input-wrapper">
                 <input
@@ -11,6 +11,7 @@
                     v-model="searchText"
                     @input="searchProducts"
                     @focus="isFocus = true"
+                    @blur="isFocus = false"
                     :class="{ 'search-form__input--active': isFocus }"
                 />
                 <ul
@@ -19,29 +20,11 @@
                 >
                     <li
                         class="search-form__input-result-item"
-                        v-for="item in resultArray"
+                        v-for="item in searchResultText"
                         :key="item.id"
                         @click="gotoPageById(item.id)"
-                    >
-                        {{ item.title }}
-                    </li>
-                    <!-- <li class="search-form__input-result-item">
-                        <span class="search-form__input-result-target"
-                            >Моло</span
-                        >ко
-                    </li>
-                    <li class="search-form__input-result-item">
-                        Коктейль
-                        <span class="search-form__input-result-target"
-                            >Моло</span
-                        >чный
-                    </li>
-                    <li class="search-form__input-result-item">
-                        Йогурт
-                        <span class="search-form__input-result-target"
-                            >Моло</span
-                        >чный
-                    </li> -->
+                        v-html="item.text"
+                    ></li>
                 </ul>
                 <div class="search-form__input-result" v-else>
                     По запросу ничего не найдено
@@ -56,8 +39,9 @@ export default {
     data() {
         return {
             searchText: "",
-            resultArray: [1],
+            resultArray: [],
             isFocus: false,
+            searchResultText: [],
         };
     },
     methods: {
@@ -68,10 +52,28 @@ export default {
 
             this.resultArray = this.$store.getters.getProducts.filter(
                 (item) => {
-                    if (item.title.indexOf(this.searchText) > 0) return true;
+                    if (
+                        item.title
+                            .toLowerCase()
+                            .indexOf(this.searchText.toLowerCase()) >= 0
+                    ) {
+                        return true;
+                    }
                 }
             );
-            // console.log(this.resultArray);
+            this.searchResultText = this.resultArray.map((item) => {
+                const regExp = new RegExp(this.searchText, "g");
+                let resItem = "";
+
+                resItem = item.title.replace(
+                    regExp,
+                    '<span class="search-form__input-result-target">' +
+                        this.searchText +
+                        "</span>"
+                );
+                return { id: item.id, text: resItem };
+            });
+            if (this.searchText === "") this.resultArray = [];
         },
         gotoPageById(id) {
             this.searchText = "";

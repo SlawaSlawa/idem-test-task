@@ -66,9 +66,19 @@
                                     fill="#414141"
                                 />
                             </svg>
-                            <a href="#" class="products-slider__info-link">
-                                Поделиться</a
+                            <share-network
+                                network="telegram"
+                                :url="'https://example.com/' + productInfo.id"
+                                v-slot="{ share }"
                             >
+                                <a
+                                    @click="share"
+                                    href="#"
+                                    class="products-slider__info-link"
+                                >
+                                    Поделиться</a
+                                >
+                            </share-network>
                         </li>
                         <li class="products-slider__info-item">
                             <svg

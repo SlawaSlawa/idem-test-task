@@ -5,9 +5,9 @@
                 {{ (price - (price * discount) / 100).toFixed(2) }}
                 ₽
             </div>
-            <div class="card__price-text">С картой</div>
+            <div class="card__price-text" v-if="showDiscount">С картой</div>
         </div>
-        <div class="card__price-item">
+        <div class="card__price-item" v-if="showDiscount">
             <div class="card__price-num--default">{{ price }} ₽</div>
             <div class="card__price-text">Обычная</div>
         </div>
@@ -17,7 +17,7 @@
 <script>
 export default {
     name: "VCardPrice",
-    props: ["price", "discount"],
+    props: ["price", "discount", "showDiscount"],
 };
 </script>
 

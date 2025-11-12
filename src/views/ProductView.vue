@@ -303,41 +303,11 @@
                         :key="card.id"
                         @click="gotoPageById(card.id)"
                     >
-                        <div class="card">
-                            <div class="card__img-wrap">
-                                <img
-                                    :src="card.thumbnail"
-                                    :alt="card.title"
-                                    class="card__img"
-                                />
-                                <div class="card__badge">
-                                    {{ card.discountPercentage }}%
-                                </div>
-                                <div class="card__like">
-                                    <img
-                                        src="../assets/images/icons/like-icon.svg"
-                                        alt="Like"
-                                        class="card__like-img"
-                                    />
-                                </div>
-                            </div>
-                            <div class="card__content-wrap">
-                                <div class="card__price-wrap">
-                                    <div class="card__price-item">
-                                        <div class="card__price-num">
-                                            {{ card.price }} ₽
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card__title-wrap">
-                                    <h3 class="card__title">
-                                        {{ card.title }}
-                                    </h3>
-                                </div>
-                                <v-rating :rating="card.rating"></v-rating>
-                                <button class="btn btn--card">В корзину</button>
-                            </div>
-                        </div>
+                        <v-card
+                            @click="gotoPageById(card.id)"
+                            :card="card"
+                            :showDiscount="false"
+                        ></v-card>
                     </SwiperSlide>
                 </Swiper>
             </div>
@@ -577,42 +547,11 @@
                             v-if="getIsLoadedError"
                         ></v-error-message> -->
                     <SwiperSlide
-                        v-for="(card, index) in actionsArr"
-                        :key="index"
+                        v-for="card in productsByCategory"
+                        :key="card.id"
                         @click="gotoPageById(card.id)"
                     >
-                        <div class="card">
-                            <div class="card__img-wrap">
-                                <img
-                                    :src="card.thumbnail"
-                                    :alt="card.title"
-                                    class="card__img"
-                                />
-                                <div class="card__badge">
-                                    -{{ card.discountPercentage }}%
-                                </div>
-                                <div class="card__like">
-                                    <img
-                                        src="../assets/images/icons/like-icon.svg"
-                                        alt="Like"
-                                        class="card__like-img"
-                                    />
-                                </div>
-                            </div>
-                            <div class="card__content-wrap">
-                                <v-card-price
-                                    :price="card.price"
-                                    :discount="card.discountPercentage"
-                                ></v-card-price>
-                                <div class="card__title-wrap">
-                                    <h3 class="card__title">
-                                        {{ card.title }}
-                                    </h3>
-                                </div>
-                                <v-rating :rating="card.rating"></v-rating>
-                                <button class="btn btn--card">В корзину</button>
-                            </div>
-                        </div>
+                        <v-card :card="card" :showDiscount="true"></v-card>
                     </SwiperSlide>
                 </Swiper>
             </div>
@@ -622,7 +561,7 @@
 
 <script>
 import VRating from "@/components/VRating.vue";
-import VCardPrice from "@/components/VCardPrice.vue";
+import VCard from "@/components/VCard.vue";
 // import VPreloader from "@/components/VPreloader.vue";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/vue";
@@ -634,7 +573,7 @@ export default {
     name: "ProductView",
     components: {
         VRating,
-        VCardPrice,
+        VCard,
         // VPreloader,
         Swiper,
         SwiperSlide,

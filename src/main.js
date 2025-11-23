@@ -5,7 +5,7 @@ import "@/assets/css/main.css";
 import router from "./router";
 import store from "./store";
 // import "swiper/swiper/css";
-import "swiper/swiper-bundle.css";
+// import "swiper/swiper-bundle.css";
 import Vue3SocialSharingPlugin from "vue3-social-sharing";
 
 import App from "./App.vue";

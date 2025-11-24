@@ -92,6 +92,23 @@ a {
     font-weight: 700;
 }
 
+.slider .swiper {
+    padding: 20px 10px;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    display: none !important;
+}
+
+.dn {
+    display: none;
+}
+
+.swiper-slide.swiper-slide-visible.swiper-slide-fully-visible.swiper-slide-active.swiper-slide-thumb-active {
+    border: 2px solid gold;
+}
+
 /* ----------------@MEDIA-------------- */
 
 @media (max-width: 768px) {

@@ -99,8 +99,6 @@ export default {
     z-index: 30;
 }
 .search-form__input:focus {
-    /* outline: 1px solid #70c05b;
-    border-color: transparent; */
     border-bottom-color: #fff;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;

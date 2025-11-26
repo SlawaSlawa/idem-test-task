@@ -2,7 +2,7 @@
     <header class="header">
         <div class="container container--header">
             <div class="header__wrapper">
-                <RouterLink to="/" class="logo">
+                <RouterLink to="/" class="logo" @click="resetIsLoadedFlags">
                     <img
                         class="logo__img"
                         alt="Logo - Магазин"
@@ -199,6 +199,11 @@
 
 <script>
 export default {
+    methods: {
+        resetIsLoadedFlags() {
+            this.$store.commit("toggleIsLoadedError", false);
+        },
+    },
     computed: {
         getQuantityInCart() {
             return this.$store.getters.getQuantityInCart;

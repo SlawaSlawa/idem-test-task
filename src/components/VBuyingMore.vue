@@ -25,10 +25,6 @@
                     },
                 }"
             >
-                <!-- <v-preloader></v-preloader>
-                        <v-error-message
-                            v-if="getIsLoadedError"
-                        ></v-error-message> -->
                 <SwiperSlide
                     v-for="card in productsByCategory"
                     :key="card.id"
@@ -62,6 +58,8 @@ export default {
             this.$router.push("/products/" + id);
         },
         scrollToTop() {
+            this.$store.commit("toggleCatalogIsLoaded", false);
+            this.$store.commit("toggleIsLoadedError", false);
             window.scrollTo(0, 0);
         },
     },
@@ -77,7 +75,7 @@ export default {
                 this.productInfo.category
             );
             const productsArr = this.$store.getters.getProductsByCategory;
-            return productsArr;
+            return productsArr.products;
         },
     },
 };

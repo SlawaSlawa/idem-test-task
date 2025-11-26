@@ -186,6 +186,10 @@ export default {
     components: {
         VRating,
     },
+    // mounted() {
+    //     this.$store.dispatch("reviews");
+    //     console.log(this.$store.getters.getReviewsArr);
+    // },
     data() {
         return {
             reviewsRatingTableIndex: 5,
@@ -198,7 +202,7 @@ export default {
             return product;
         },
         reviewsArr() {
-            this.$store.dispatch("reviews");
+            // this.$store.dispatch("reviews");
             return this.$store.getters.getReviewsArr;
         },
         reviewsRatingTable() {

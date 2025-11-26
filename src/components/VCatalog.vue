@@ -40,11 +40,6 @@ export default {
     methods: {
         getMoreCards() {
             this.multiplier++;
-            console.log(
-                this.$store.getters.getProducts.length,
-                this.$store.getNumberOfCards,
-                this.multiplier
-            );
             if (
                 this.$store.getters.getProducts.length -
                     this.$store.getters.getNumberOfCards * this.multiplier >
@@ -60,6 +55,8 @@ export default {
             this.$router.push("/products/" + id);
         },
         scrollToTop() {
+            this.$store.commit("toggleCatalogIsLoaded", false);
+            this.$store.commit("toggleIsLoadedError", false);
             window.scrollTo(0, 0);
         },
     },

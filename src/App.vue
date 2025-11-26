@@ -16,7 +16,6 @@ import VFooter from "./components/VFooter.vue";
 
 export default {
     created() {
-        // this.$store.dispatch("newNumbersOfCard", window.innerWidth);
         window.addEventListener("resize", this.resizeHandler);
         this.resizeHandler(false);
     },
@@ -24,7 +23,7 @@ export default {
         window.removeEventListener("resize", this.resizeHandler);
     },
     mounted() {
-        // this.$store.dispatch("fetchProducts");
+        this.$store.dispatch("fetchProducts");
     },
     name: "App",
     components: {

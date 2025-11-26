@@ -265,7 +265,6 @@
 </template>
 
 <script>
-// import VPreloader from "@/components/VPreloader.vue";
 import VRating from "@/components/VRating.vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { ref } from "vue";
@@ -276,7 +275,6 @@ export default {
     name: "VProductSlider",
     components: {
         VRating,
-        // VPreloader,
         Swiper,
         SwiperSlide,
     },
@@ -300,6 +298,7 @@ export default {
             setSwiperPagination,
         };
     },
+    mounted() {},
     methods: {
         scrollToTop() {
             window.scrollTo(0, 0);
@@ -310,7 +309,6 @@ export default {
     },
     computed: {
         productInfo() {
-            this.$store.dispatch("productItem", this.$route.params.id);
             const product = this.$store.getters.getProductItem;
             return product;
         },

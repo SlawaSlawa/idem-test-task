@@ -11,7 +11,6 @@
                     v-model="searchText"
                     @input="searchProducts"
                     @focus="isFocus = true"
-                    @blur="isFocus = false"
                     :class="{ 'search-form__input--active': isFocus }"
                 />
                 <ul
@@ -46,10 +45,6 @@ export default {
     },
     methods: {
         searchProducts() {
-            // this.$store.getters.getProducts.forEach((item) =>
-            //     console.log(item.title.indexOf(this.searchText))
-            // );
-
             this.resultArray = this.$store.getters.getProducts.filter(
                 (item) => {
                     if (
@@ -76,6 +71,7 @@ export default {
             if (this.searchText === "") this.resultArray = [];
         },
         gotoPageById(id) {
+            console.log(id);
             this.searchText = "";
             this.isFocus = false;
             this.resultArray = [];
